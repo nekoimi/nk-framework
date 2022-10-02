@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.sakuraio.nk</groupId>
+    <artifactId>nk-framework</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>nk-dependencies</module>
+        <module>nk-framework-file</module>
+        <module>nk-framework-feign</module>
+        <module>nk-framework-util</module>
+        <module>nk-test</module>
+    </modules>
+
+    <properties>
+        <encoding>UTF-8</encoding>
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <!-- 依赖版本 -->
+        <nk-framework-dependencies-version>${version}</nk-framework-dependencies-version>
+        <spring-cloud.version>2021.0.4</spring-cloud.version>
+        <spring-boot.version>2.6.11</spring-boot.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- build配置 -->
+    <build>
+        <!-- 资源文件 -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+        <!-- 插件管理 -->
+        <pluginManagement>
+            <plugins>
+                <!--
+                打包资源：
+                    mvn resources:resources
+                    mvn resources:testResources
+                -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <configuration>
+                        <resources>
+                            <!-- 配置文件 -->
+                            <resource>
+                                <directory>src/main/resources</directory>
+                                <!-- 配置文件属性替换：properties -->
+                                <filtering>true</filtering>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </resource>
+                            <!-- 开源协议 -->
+                            <resource>
+                                <directory>./</directory>
+                                <filtering>false</filtering>
+                                <targetPath>META-INF/</targetPath>
+                                <includes>
+                                    <include>LICENSE</include>
+                                </includes>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <skipTests>true</skipTests>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${encoding}</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <!-- Maven插件 -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 开发配置 -->
+    <repositories>
+        <!-- 非生产库-snapshot -->
+        <repository>
+            <id>aliyun-packages-snapshot</id>
+            <url>https://packages.aliyun.com/maven/repository/2053914-snapshot-vBdZUN</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!-- maven 分发配置 -->
+    <distributionManagement>
+        <!-- 生产库-release -->
+        <repository>
+            <id>aliyun-packages-release</id>
+            <url>https://packages.aliyun.com/maven/repository/2053914-release-yb1jfn</url>
+        </repository>
+        <!-- 非生产库-snapshot -->
+        <snapshotRepository>
+            <id>aliyun-packages-snapshot</id>
+            <url>https://packages.aliyun.com/maven/repository/2053914-snapshot-vBdZUN</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
