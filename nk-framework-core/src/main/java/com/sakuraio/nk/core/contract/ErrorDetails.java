@@ -1,5 +1,7 @@
 package com.sakuraio.nk.core.contract;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * <p>ErrorDetails</p>
  *
@@ -8,5 +10,7 @@ package com.sakuraio.nk.core.contract;
 public interface ErrorDetails {
     Integer code();
     String message();
-    String trace();
+    default String trace() {
+        return StringUtils.EMPTY;
+    }
 }
