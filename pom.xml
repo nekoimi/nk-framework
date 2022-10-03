@@ -12,6 +12,9 @@
         <module>nk-framework-file</module>
         <module>nk-framework-feign</module>
         <module>nk-framework-util</module>
+        <module>nk-framework-core</module>
+        <module>nk-framework-error</module>
+        <module>nk-framework-spring-error</module>
         <module>nk-test</module>
     </modules>
 
@@ -43,6 +46,16 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-core</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-util</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

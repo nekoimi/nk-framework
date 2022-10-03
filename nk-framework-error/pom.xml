@@ -9,6 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>nk-framework-file</artifactId>
+    <artifactId>nk-framework-error</artifactId>
 
 </project>

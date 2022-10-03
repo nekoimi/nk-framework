@@ -1,5 +1,6 @@
-package com.sakuraio.nk.feign;
+package com.sakuraio.nk.core.trace;
 
+import com.sakuraio.nk.core.constants.Headers;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 
@@ -21,10 +22,10 @@ public class TraceIdGenerator {
      * @return traceId
      */
     public static String get() {
-        String traceId = MDC.get(TraceIdConstants.HEADER_REQUEST_TRACE_ID);
+        String traceId = MDC.get(Headers.TRACE_ID);
         if (StringUtils.isBlank(traceId)) {
             traceId = generate();
-            MDC.put(TraceIdConstants.HEADER_REQUEST_TRACE_ID, traceId);
+            MDC.put(Headers.TRACE_ID, traceId);
         }
         return traceId;
     }
