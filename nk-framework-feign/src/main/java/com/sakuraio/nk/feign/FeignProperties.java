@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  *
  * @author nekoimi 2022/10/02
  */
-@ConfigurationProperties(prefix = "sakuraio.nk.feign")
+@ConfigurationProperties(prefix = "nk.feign")
 public class FeignProperties {
     /**
      * <p>服务地址</p>

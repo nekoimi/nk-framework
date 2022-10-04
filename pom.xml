@@ -15,7 +15,7 @@
         <module>nk-framework-core</module>
         <module>nk-framework-error</module>
         <module>nk-framework-web</module>
-        <module>nk-test</module>
+        <module>nk-providers</module>
     </modules>
 
     <properties>
@@ -33,6 +33,16 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>2.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.annotation</groupId>
+                <artifactId>javax.annotation-api</artifactId>
+                <version>1.3.2</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -55,6 +65,11 @@
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-util</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-feign</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
         </dependencies>

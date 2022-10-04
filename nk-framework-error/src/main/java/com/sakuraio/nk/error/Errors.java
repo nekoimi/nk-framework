@@ -1,4 +1,4 @@
-package com.sakuraio.nk.core.error;
+package com.sakuraio.nk.error;
 
 import com.sakuraio.nk.core.contract.ErrorDetails;
 
@@ -8,7 +8,12 @@ import com.sakuraio.nk.core.contract.ErrorDetails;
  * @author nekoimi 2022/10/03
  */
 public enum Errors implements ErrorDetails {
-    OK(0, "ok");
+    // OK
+    OK(0, "ok"),
+    // 客户端请求异常
+    CLIENT_ERROR(190400, "无效的请求！"),
+    // 未捕获的异常，系统发生致命错误，提示系统维护更新!
+    SERVER_ERROR(190500, "系统更新中！请稍候再试～");;
 
     private final Integer code;
     private final String message;

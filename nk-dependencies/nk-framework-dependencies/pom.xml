@@ -15,12 +15,22 @@
         <dependencies>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-web</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-file</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-util</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-error</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
         </dependencies>

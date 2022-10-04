@@ -11,4 +11,14 @@
     <packaging>jar</packaging>
     <artifactId>nk-framework-file</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sakuraio.nk</groupId>
+            <artifactId>nk-framework-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sakuraio.nk</groupId>
+            <artifactId>nk-framework-feign</artifactId>
+        </dependency>
+    </dependencies>
 </project>

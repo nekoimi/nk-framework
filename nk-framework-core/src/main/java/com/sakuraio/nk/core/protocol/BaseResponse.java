@@ -1,8 +1,8 @@
 package com.sakuraio.nk.core.protocol;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sakuraio.nk.core.contract.ErrorDetails;
-import com.sakuraio.nk.core.error.Errors;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,6 +25,8 @@ import java.util.Objects;
 @AllArgsConstructor
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class BaseResponse<T extends Serializable> implements Serializable {
+    public static final Integer OK_CODE = 0;
+    public static final String OK_MESSAGE = "OK";
     private static final Map<String, String> EMPTY_DATA = new HashMap<>();
 
     /**
@@ -52,8 +54,9 @@ public class BaseResponse<T extends Serializable> implements Serializable {
      *
      * @return
      */
+    @JsonIgnore
     public Boolean isOk() {
-        return Objects.equals(Errors.OK.code(), this.getCode());
+        return Objects.equals(OK_CODE, this.getCode());
     }
 
     /**
@@ -75,8 +78,8 @@ public class BaseResponse<T extends Serializable> implements Serializable {
      */
     public static <T extends Serializable> BaseResponse<T> ok(T data) {
         return BaseResponse.<T>builder()
-                .code(Errors.OK.code())
-                .message(Errors.OK.message())
+                .code(OK_CODE)
+                .message(OK_MESSAGE)
                 .data(data)
                 .build();
     }

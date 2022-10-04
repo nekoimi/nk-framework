@@ -1,6 +1,7 @@
 package com.sakuraio.nk.feign.config;
 
 import com.sakuraio.nk.feign.interceptor.TraceIdRequestInterceptor;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author nekoimi 2022/10/02
  */
 @Configuration
+@EnableFeignClients
 public class FeignConfiguration {
 
     @Bean
