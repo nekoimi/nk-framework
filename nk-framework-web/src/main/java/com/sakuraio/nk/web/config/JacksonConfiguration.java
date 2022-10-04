@@ -1,39 +1,35 @@
-package com.yoyohr.boot.framework.config;
+package com.sakuraio.nk.web.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.yoyohr.boot.framework.constants.DateTimeConstants;
+import com.sakuraio.nk.core.constants.TimeConstants;
 import org.springframework.boot.autoconfigure.jackson.JacksonProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 import java.util.Locale;
+import java.util.TimeZone;
 
 /**
+ * <p>JacksonConfiguration</p>
+ *
  * nekoimi  2021/12/16 18:53
  */
 @Configuration
 public class JacksonConfiguration {
 
-    /**
-     * Jackson全局配置
-     *
-     * @param properties
-     * @return
-     */
     @Bean
     @Primary
     public JacksonProperties jacksonProperties(JacksonProperties properties) {
         properties.setLocale(Locale.SIMPLIFIED_CHINESE);
         properties.setDefaultPropertyInclusion(JsonInclude.Include.NON_NULL);
-        // 指定要序列化的域，field,get和set,以及修饰符范围，ANY是都有包括private和public
         properties.getVisibility().put(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        properties.setDateFormat(DateTimeConstants.DEFAULT_DATE_FORMAT);
-        properties.setTimeZone(DateTimeConstants.DEFAULT_TIME_ZONE);
+        properties.setDateFormat(TimeConstants.DATE_FORMAT);
+        properties.setTimeZone(TimeZone.getDefault());
         properties.getDeserialization().put(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
         properties.getDeserialization().put(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         properties.getSerialization().put(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);

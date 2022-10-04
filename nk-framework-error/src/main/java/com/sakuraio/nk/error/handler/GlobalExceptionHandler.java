@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 /**
  * <p>GlobalExceptionHandler</p>
@@ -21,34 +22,48 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = BizException.class)
     @ResponseBody
-    public BaseResponse<ErrorDetailsVO> bizExceptionHandler(BizException exception) {
-        log.error("业务异常: {}", exception.getMessage());
+    public BaseResponse<ErrorDetailsVO> bizExceptionHandler(BizException e) {
+        log.error("业务异常: {}", e.getMessage());
+        e.printStackTrace();
         return BaseResponse.error(ErrorDetailsVO.of(
-                exception.getCode(),
-                exception.getMessage(),
-                exception.getTrace()
+                e.getCode(),
+                e.getMessage(),
+                e.getTrace()
         ));
     }
 
     @ExceptionHandler(value = NullPointerException.class)
     @ResponseBody
-    public BaseResponse<ErrorDetailsVO> nullPointExceptionHandler(NullPointerException exception) {
-        log.error("空指针异常: {}", exception.getMessage());
+    public BaseResponse<ErrorDetailsVO> nullPointExceptionHandler(NullPointerException e) {
+        log.error("空指针异常: {}", e.getMessage());
+        e.printStackTrace();
         return BaseResponse.error(ErrorDetailsVO.of(
                 Errors.SERVER_ERROR.code(),
-                exception.getMessage(),
-                ErrorUtils.getTraceString(exception)
+                e.getMessage(),
+                ErrorUtils.getTraceString(e)
+        ));
+    }
+
+    @ExceptionHandler(value = NoHandlerFoundException.class)
+    @ResponseBody
+    public BaseResponse<ErrorDetailsVO> handlerNotFoundExceptionHandler(NoHandlerFoundException e) {
+        String errorMessage = "路由不存在! method: " + e.getHttpMethod() + ", url: " + e.getRequestURL();
+        return BaseResponse.error(ErrorDetailsVO.of(
+                Errors.CLIENT_ERROR.code(),
+                errorMessage,
+                ErrorUtils.getTraceString(e)
         ));
     }
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public BaseResponse<ErrorDetailsVO> defaultExceptionHandler(Exception exception) {
-        log.error("异常: {}", exception.getMessage());
+    public BaseResponse<ErrorDetailsVO> defaultExceptionHandler(Exception e) {
+        log.error("异常: {}, {}", e.getClass(), e.getMessage());
+        e.printStackTrace();
         return BaseResponse.error(ErrorDetailsVO.of(
                 Errors.SERVER_ERROR.code(),
-                exception.getMessage(),
-                ErrorUtils.getTraceString(exception)
+                e.getMessage(),
+                ErrorUtils.getTraceString(e)
         ));
     }
 }

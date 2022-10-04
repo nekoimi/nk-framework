@@ -20,8 +20,9 @@ public class ErrorUtils {
      * @return
      */
     public static String getTraceString(Throwable throwable) {
-        PrintWriter writer = new PrintWriter(new StringWriter());
-        throwable.printStackTrace(writer);
-        return writer.toString();
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(stringWriter, true);
+        throwable.printStackTrace(printWriter);
+        return stringWriter.toString();
     }
 }

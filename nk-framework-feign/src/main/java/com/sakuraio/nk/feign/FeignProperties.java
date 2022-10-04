@@ -1,12 +1,14 @@
 package com.sakuraio.nk.feign;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>FeignProperties</p>
  *
  * @author nekoimi 2022/10/02
  */
+@Component
 @ConfigurationProperties(prefix = "nk.feign")
 public class FeignProperties {
     /**

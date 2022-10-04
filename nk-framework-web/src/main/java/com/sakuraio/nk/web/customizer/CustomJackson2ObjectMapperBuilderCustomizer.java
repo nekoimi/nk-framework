@@ -12,18 +12,18 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
- * <p>Jackson2ObjectMapperBuilder</p>
+ * <p>HttpJackson2ObjectMapperBuilderCustomizer</p>
  *
  * @author nekoimi 2022/10/03
  */
-public class HttpJackson2ObjectMapperBuilderCustomizer
+public class CustomJackson2ObjectMapperBuilderCustomizer
         implements Jackson2ObjectMapperBuilderCustomizer {
 
     @Override
     public void customize(Jackson2ObjectMapperBuilder builder) {
         builder.serializerByType(LocalDate.class, new LocalDateSerializer(TimeConstants.DATE_FORMATTER));
-        builder.serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(DateTimeConstants.DEFAULT_DATE_TIME_FORMATTER));
         builder.deserializerByType(LocalDate.class, new LocalDateDeserializer(TimeConstants.DATE_FORMATTER));
-        builder.deserializerByType(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeConstants.DEFAULT_DATE_TIME_FORMATTER));
+        builder.serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(TimeConstants.DATE_TIME_FORMATTER));
+        builder.deserializerByType(LocalDateTime.class, new LocalDateTimeDeserializer(TimeConstants.DATE_TIME_FORMATTER));
     }
 }
