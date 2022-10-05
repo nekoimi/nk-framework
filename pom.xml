@@ -15,7 +15,6 @@
         <module>nk-framework-core</module>
         <module>nk-framework-error</module>
         <module>nk-framework-web</module>
-        <module>nk-providers</module>
     </modules>
 
     <properties>
