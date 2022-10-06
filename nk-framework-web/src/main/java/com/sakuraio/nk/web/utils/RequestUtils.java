@@ -39,6 +39,16 @@ public class RequestUtils {
     }
 
     /**
+     * <p>获取 TraceId</p>
+     *
+     * @param request
+     * @return
+     */
+    public static String getTraceId(HttpServletRequest request) {
+        return request.getHeader(Headers.TRACE_ID);
+    }
+
+    /**
      * <p>Query String 转 Map</p>
      *
      * @param queryString

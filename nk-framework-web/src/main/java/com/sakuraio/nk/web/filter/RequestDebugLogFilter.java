@@ -1,9 +1,11 @@
 package com.sakuraio.nk.web.filter;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -12,11 +14,10 @@ import java.io.IOException;
  * @author nekoimi 2022/10/04
  */
 @Slf4j
-@Component
-public class RequestDebugLogFilter implements Filter {
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+public class RequestDebugLogFilter extends OncePerRequestFilter {
 
-        chain.doFilter(request, response);
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        filterChain.doFilter(request, response);
     }
 }

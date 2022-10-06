@@ -15,6 +15,43 @@
         <module>nk-framework-core</module>
         <module>nk-framework-error</module>
         <module>nk-framework-web</module>
+        <module>nk-framework-devtool</module>
+        <module>nk-framework-mybatis</module>
+        <module>nk-framework-excel</module>
+        <module>nk-framework-sms</module>
+        <module>nk-framework-email</module>
+        <module>nk-framework-spring-security</module>
+        <module>nk-framework-shiro</module>
+        <module>nk-framework-cache</module>
+        <module>nk-framework-user</module>
+        <module>nk-framework-ktorm</module>
+        <module>nk-framework-dictionary</module>
+        <module>nk-framework-swagger2</module>
+        <module>nk-framework-auth-api</module>
+        <module>nk-framework-auth</module>
+        <module>nk-framework-auth-qq</module>
+        <module>nk-framework-auth-wechat</module>
+        <module>nk-framework-auth-weibo</module>
+        <module>nk-framework-captcha-api</module>
+        <module>nk-framework-captcha</module>
+        <module>nk-framework-captcha-geetest</module>
+        <module>nk-framework-pay-api</module>
+        <module>nk-framework-pay-ali</module>
+        <module>nk-framework-pay-wechat</module>
+        <module>nk-framework-pay-union</module>
+        <module>nk-framework-quartz</module>
+        <module>nk-framework-jwt</module>
+        <module>nk-framework-queue-api</module>
+        <module>nk-framework-queue-redis</module>
+        <module>nk-framework-websocket-api</module>
+        <module>nk-framework-websocket</module>
+        <module>nk-framework-websocket-socketio</module>
+        <module>nk-framework-websocket-netty</module>
+        <module>nk-framework-elastricsearch</module>
+        <module>nk-framework-redis</module>
+        <module>nk-framework-json-api</module>
+        <module>nk-framework-json-jackson</module>
+        <module>nk-framework-json-fastjson</module>
     </modules>
 
     <properties>
@@ -28,6 +65,7 @@
         <nk-framework-dependencies-version>${version}</nk-framework-dependencies-version>
         <spring-cloud.version>2021.0.4</spring-cloud.version>
         <spring-boot.version>2.6.11</spring-boot.version>
+        <fastjson.version>1.2.78</fastjson.version>
     </properties>
 
     <dependencyManagement>
@@ -62,6 +100,11 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-core</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
@@ -74,6 +117,21 @@
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-feign</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-json-api</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-json-jackson</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-json-fastjson</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
         </dependencies>

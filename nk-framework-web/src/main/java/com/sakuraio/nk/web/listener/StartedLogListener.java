@@ -1,6 +1,6 @@
 package com.sakuraio.nk.web.listener;
 
-import com.sakuraio.nk.web.utils.SpringPropertyUtils;
+import com.sakuraio.nk.core.utils.SpringPropertyUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;

@@ -1,6 +1,6 @@
-package com.sakuraio.nk.web.utils;
+package com.sakuraio.nk.core.utils;
 
-import com.sakuraio.nk.web.holder.SpringContextHolder;
+import com.sakuraio.nk.core.holder.SpringContextHolder;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetAddress;
