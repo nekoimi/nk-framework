@@ -1,4 +1,4 @@
-package com.sakuraio.nk.web.listener;
+package com.sakuraio.nk.swagger2.listener;
 
 import com.sakuraio.nk.core.utils.SpringPropertyUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -7,21 +7,20 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 /**
- * <p>ApplicationStartedListener</p>
+ * <p>SwaggerLogListener</p>
  *
- * @author nekoimi 2022/10/06
+ * @author nekoimi 2022/10/07
  */
 @Slf4j
 @Component
-public class StartedLogListener implements ApplicationListener<ApplicationStartedEvent> {
+public class SwaggerLogListener implements ApplicationListener<ApplicationStartedEvent> {
 
     @Override
     public void onApplicationEvent(ApplicationStartedEvent event) {
-        log.info("[{}] is running on http://{}:{}, {} seconds",
+        log.info("[{}] swagger url http://{}:{}/doc.html",
                 SpringPropertyUtils.applicationName(),
                 SpringPropertyUtils.serverHost(),
-                SpringPropertyUtils.serverPort(),
-                event.getTimeTaken().getSeconds()
+                SpringPropertyUtils.serverPort()
         );
     }
 }
