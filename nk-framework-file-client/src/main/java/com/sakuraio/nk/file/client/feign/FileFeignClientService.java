@@ -1,4 +1,4 @@
-package com.sakuraio.nk.file.api.feign;
+package com.sakuraio.nk.file.client.feign;
 
 import com.sakuraio.nk.file.api.service.FileRemoteService;
 import org.springframework.cloud.openfeign.FeignClient;

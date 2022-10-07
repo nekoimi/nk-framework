@@ -1,0 +1,7 @@
+# configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.sakuraio.nk.web.config.WebCustomConfiguration
+
+# listener
+org.springframework.context.ApplicationListener=\
+  com.sakuraio.nk.web.listener.StartedLogListener

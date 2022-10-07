@@ -1,18 +1,22 @@
 package com.sakuraio.nk.web.config;
 
 import com.sakuraio.nk.web.config.properties.CorsProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * <p>WebCustomConfiguration</p>
  *
  * @author nekoimi 2022/10/04
  */
-@Configuration
+@EnableWebMvc
+@EnableConfigurationProperties(
+        CorsProperties.class
+)
 public class WebCustomConfiguration {
 
     @Bean

@@ -27,6 +27,7 @@
         <module>nk-framework-excel</module>
         <module>nk-framework-feign</module>
         <module>nk-framework-file-api</module>
+        <module>nk-framework-file-client</module>
         <module>nk-framework-json-api</module>
         <module>nk-framework-json-fastjson</module>
         <module>nk-framework-json-jackson</module>
@@ -113,6 +114,12 @@
                 <version>${swagger2.version}</version>
             </dependency>
             <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>1.5.20</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-spring-webmvc</artifactId>
                 <version>${swagger2.version}</version>
@@ -136,6 +143,11 @@
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-feign</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-file-api</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>

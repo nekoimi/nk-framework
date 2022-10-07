@@ -1,0 +1,3 @@
+# configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.sakuraio.nk.json.fastjson.config.FastjsonConfiguration

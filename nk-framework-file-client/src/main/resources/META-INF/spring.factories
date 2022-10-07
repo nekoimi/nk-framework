@@ -1,0 +1,3 @@
+# service
+com.sakuraio.nk.file.api.service.FileRemoteService=\
+  com.sakuraio.nk.file.client.feign.FileFeignClientService

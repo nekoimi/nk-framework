@@ -105,6 +105,11 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-file-client</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-json-api</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>

@@ -19,7 +19,6 @@ import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.autoconfigure.jackson.JacksonProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
@@ -32,7 +31,6 @@ import java.util.TimeZone;
  *
  * nekoimi  2021/12/16 18:53
  */
-@Configuration
 public class JacksonConfiguration {
 
     @Bean

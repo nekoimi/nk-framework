@@ -1,6 +1,8 @@
 package com.sakuraio.nk.core.protocol;
 
 import com.sakuraio.nk.core.contract.ErrorDetails;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,6 +22,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ApiModel
 public class BaseResponse<T extends Serializable> implements Serializable {
     public static final Integer OK_CODE = 0;
     public static final String OK_MESSAGE = "OK";
@@ -28,21 +31,25 @@ public class BaseResponse<T extends Serializable> implements Serializable {
     /**
      * <p>业务状态码；0 - 表示接口返回成功，其他值表示操作不成功，具体消息由message字段表示</p>
      */
+    @ApiModelProperty("业务状态码；0 - 表示接口返回成功，其他值表示操作不成功，具体消息由message字段表示")
     private Integer code;
 
     /**
      * <p>业务消息；当且仅当code不为0时有效</p>
      */
+    @ApiModelProperty("业务消息；当且仅当code不为0时有效")
     private String message;
 
     /**
      * <p>详细错误信息，用于debug</p>
      */
+    @ApiModelProperty("详细错误信息，用于debug")
     private String trace;
 
     /**
      * <p>业务数据</p>
      */
+    @ApiModelProperty("业务数据")
     private T data;
 
     /**

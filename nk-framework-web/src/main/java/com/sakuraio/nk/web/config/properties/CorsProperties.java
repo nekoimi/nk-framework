@@ -2,7 +2,6 @@ package com.sakuraio.nk.web.config.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -12,7 +11,6 @@ import java.util.List;
  * @author nekoimi 2022/10/04
  */
 @Data
-@Component
 @ConfigurationProperties(prefix = "nk.web.cors")
 public class CorsProperties {
     private List<String> allowedOrigins;

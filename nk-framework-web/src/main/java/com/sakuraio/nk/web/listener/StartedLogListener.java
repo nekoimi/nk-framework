@@ -4,7 +4,6 @@ import com.sakuraio.nk.core.utils.SpringPropertyUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 
 /**
  * <p>ApplicationStartedListener</p>
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Component;
  * @author nekoimi 2022/10/06
  */
 @Slf4j
-@Component
 public class StartedLogListener implements ApplicationListener<ApplicationStartedEvent> {
 
     @Override
