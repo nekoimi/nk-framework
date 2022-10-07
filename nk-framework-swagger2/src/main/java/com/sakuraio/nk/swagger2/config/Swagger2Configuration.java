@@ -9,11 +9,13 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.util.AntPathMatcher;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.DocumentationPlugin;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
@@ -28,6 +30,7 @@ import java.util.List;
  */
 @Getter
 @Setter
+@EnableWebMvc
 @EnableSwagger2WebMvc
 @EnableConfigurationProperties(
         SwaggerProperties.class
@@ -41,7 +44,7 @@ public class Swagger2Configuration {
     }
 
     @Bean
-    public Docket docket() {
+    public DocumentationPlugin docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName(SpringPropertyUtils.applicationName())
                 .useDefaultResponseMessages(false)
