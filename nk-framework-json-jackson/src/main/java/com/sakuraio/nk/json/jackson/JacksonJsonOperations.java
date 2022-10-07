@@ -19,13 +19,19 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 public class JacksonJsonOperations implements JsonOperations {
 
+    private final ObjectMapper objectMapper;
+
+    public JacksonJsonOperations(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
+
     @Override
     public String writeValueAsString(Object objectValue) {
         if (objectValue instanceof CharSequence) {
             return objectValue.toString();
         }
         try {
-            return SpringContextHolder.getBean(ObjectMapper.class).writeValueAsString(objectValue);
+            return objectMapper.writeValueAsString(objectValue);
         } catch (JsonProcessingException e) {
             log.error(e.getMessage(), e);
             return null;
@@ -38,7 +44,7 @@ public class JacksonJsonOperations implements JsonOperations {
             return objectValue.toString().getBytes(StandardCharsets.UTF_8);
         }
         try {
-            return SpringContextHolder.getBean(ObjectMapper.class).writeValueAsBytes(objectValue);
+            return objectMapper.writeValueAsBytes(objectValue);
         } catch (JsonProcessingException e) {
             log.error(e.getMessage(), e);
             return new byte[0];
@@ -48,7 +54,7 @@ public class JacksonJsonOperations implements JsonOperations {
     @Override
     public <T> T readValue(String json, Class<T> resultType) {
         try {
-            return SpringContextHolder.getBean(ObjectMapper.class).readValue(json, resultType);
+            return objectMapper.readValue(json, resultType);
         } catch (JsonProcessingException e) {
             log.error(e.getMessage());
             return null;
@@ -58,7 +64,7 @@ public class JacksonJsonOperations implements JsonOperations {
     @Override
     public <T> T readValue(byte[] json, Class<T> resultType) {
         try {
-            return SpringContextHolder.getBean(ObjectMapper.class).readValue(json, resultType);
+            return objectMapper.readValue(json, resultType);
         } catch (IOException e) {
             log.error(e.getMessage());
             return null;
