@@ -1,7 +1,7 @@
-package com.sakuraio.nk.file.feign;
+package com.sakuraio.nk.file.api.feign;
 
 import com.sakuraio.nk.feign.AbstractFeignFallback;
-import com.sakuraio.nk.file.vo.FileInfo;
+import com.sakuraio.nk.file.api.vo.FileInfo;
 
 /**
  * <p>FileFeignFallback</p>

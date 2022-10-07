@@ -9,16 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>nk-framework-file</artifactId>
+    <artifactId>nk-framework-elasticsearch</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.sakuraio.nk</groupId>
-            <artifactId>nk-framework-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.sakuraio.nk</groupId>
-            <artifactId>nk-framework-feign</artifactId>
-        </dependency>
-    </dependencies>
 </project>

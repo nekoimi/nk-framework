@@ -1,4 +1,4 @@
-package com.sakuraio.nk.file.vo;
+package com.sakuraio.nk.file.api.vo;
 
 import java.io.Serializable;
 
