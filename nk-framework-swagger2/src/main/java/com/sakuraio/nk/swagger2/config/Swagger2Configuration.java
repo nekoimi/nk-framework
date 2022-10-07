@@ -1,12 +1,13 @@
 package com.sakuraio.nk.swagger2.config;
 
-import com.google.common.collect.Lists;
 import com.sakuraio.nk.core.constants.Headers;
 import com.sakuraio.nk.core.utils.SpringPropertyUtils;
+import com.sakuraio.nk.swagger2.config.properties.SwaggerProperties;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.util.AntPathMatcher;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -25,12 +26,19 @@ import java.util.List;
  *
  * @author nekoimi 2022/10/07
  */
-@Configuration
+@Getter
+@Setter
 @EnableSwagger2WebMvc
+@EnableConfigurationProperties(
+        SwaggerProperties.class
+)
 public class Swagger2Configuration {
 
-    @Value("${nk.swagger.permit-all}")
-    private List<String> permitAll = Lists.newArrayList();
+    private final SwaggerProperties swaggerProperties;
+
+    public Swagger2Configuration(SwaggerProperties swaggerProperties) {
+        this.swaggerProperties = swaggerProperties;
+    }
 
     @Bean
     public Docket docket() {
@@ -78,7 +86,7 @@ public class Swagger2Configuration {
     private boolean pathSelect(String path) {
         AntPathMatcher matcher = new AntPathMatcher();
         boolean b = !matcher.match("/", path);
-        for (String s : permitAll) {
+        for (String s : swaggerProperties.getPermitAll()) {
             b = !matcher.match(s, path);
         }
         return b;

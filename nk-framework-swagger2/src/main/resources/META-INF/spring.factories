@@ -1,0 +1,8 @@
+# configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.sakuraio.nk.swagger2.config.Swagger2Configuration,\
+  com.sakuraio.nk.swagger2.config.SwaggerUIWebMvcConfigurer
+
+# listener
+org.springframework.context.ApplicationListener=\
+  com.sakuraio.nk.swagger2.listener.SwaggerLogListener
