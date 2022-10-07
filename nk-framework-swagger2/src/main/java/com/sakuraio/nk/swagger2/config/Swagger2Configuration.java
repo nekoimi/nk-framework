@@ -9,7 +9,6 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.util.AntPathMatcher;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -30,7 +29,6 @@ import java.util.List;
  */
 @Getter
 @Setter
-@EnableWebMvc
 @EnableSwagger2WebMvc
 @EnableConfigurationProperties(
         SwaggerProperties.class
