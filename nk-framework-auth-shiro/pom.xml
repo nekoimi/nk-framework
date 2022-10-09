@@ -9,6 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>nk-framework-auth-weibo</artifactId>
+    <artifactId>nk-framework-auth-shiro</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sakuraio.nk</groupId>
+            <artifactId>nk-framework-auth-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring-boot-web-starter</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,6 +1,6 @@
 package com.sakuraio.nk.web.wrapper;
 
-import com.sakuraio.nk.web.utils.RequestUtils;
+import com.sakuraio.nk.util.http.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;

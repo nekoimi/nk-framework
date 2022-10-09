@@ -1,4 +1,4 @@
-package com.sakuraio.nk.core.constants;
+package com.sakuraio.nk.constants;
 
 import java.time.format.DateTimeFormatter;
 

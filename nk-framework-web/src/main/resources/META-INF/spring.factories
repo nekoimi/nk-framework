@@ -5,3 +5,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 # listener
 org.springframework.context.ApplicationListener=\
   com.sakuraio.nk.web.listener.StartedLogListener
+
+# provider
+com.sakuraio.nk.auth.api.contract.BasicFilterProvider=\
+  com.sakuraio.nk.web.provider.WebBasicFilterProvider

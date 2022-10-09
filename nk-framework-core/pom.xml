@@ -14,6 +14,10 @@
     <dependencies>
         <dependency>
             <groupId>com.sakuraio.nk</groupId>
+            <artifactId>nk-framework-constants</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sakuraio.nk</groupId>
             <artifactId>nk-framework-util</artifactId>
         </dependency>
         <dependency>

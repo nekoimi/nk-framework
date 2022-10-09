@@ -1,6 +1,6 @@
 package com.sakuraio.nk.core.trace;
 
-import com.sakuraio.nk.core.constants.Headers;
+import com.sakuraio.nk.constants.Headers;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 

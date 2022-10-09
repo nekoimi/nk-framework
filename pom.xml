@@ -10,10 +10,8 @@
     <modules>
         <module>nk-dependencies</module>
         <module>nk-framework-auth-api</module>
-        <module>nk-framework-auth</module>
-        <module>nk-framework-auth-qq</module>
-        <module>nk-framework-auth-wechat</module>
-        <module>nk-framework-auth-weibo</module>
+        <module>nk-framework-auth-shiro</module>
+        <module>nk-framework-auth-spring-security</module>
         <module>nk-framework-cache</module>
         <module>nk-framework-captcha-api</module>
         <module>nk-framework-captcha</module>
@@ -42,9 +40,7 @@
         <module>nk-framework-queue-api</module>
         <module>nk-framework-queue-redis</module>
         <module>nk-framework-redis</module>
-        <module>nk-framework-shiro</module>
         <module>nk-framework-sms</module>
-        <module>nk-framework-spring-security</module>
         <module>nk-framework-swagger2</module>
         <module>nk-framework-user</module>
         <module>nk-framework-util</module>
@@ -53,6 +49,7 @@
         <module>nk-framework-websocket-netty</module>
         <module>nk-framework-websocket-socketio</module>
         <module>nk-framework-websocket-servlet</module>
+        <module>nk-framework-constants</module>
     </modules>
 
     <properties>
@@ -67,6 +64,7 @@
         <spring-cloud.version>2021.0.4</spring-cloud.version>
         <spring-boot.version>2.6.11</spring-boot.version>
         <fastjson.version>1.2.78</fastjson.version>
+        <shiro.version>1.9.1</shiro.version>
         <swagger2.version>2.10.5</swagger2.version>
         <swagger2-knife4j-ui.version>2.0.9</swagger2-knife4j-ui.version>
     </properties>
@@ -107,6 +105,11 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring-boot-web-starter</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
             <!-- swagger2 - start -->
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -132,7 +135,17 @@
             <!-- swagger2 - end -->
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-constants</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-core</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-auth-api</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>

@@ -20,22 +20,12 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-auth</artifactId>
+                <artifactId>nk-framework-auth-shiro</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-auth-qq</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-auth-wechat</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-auth-weibo</artifactId>
+                <artifactId>nk-framework-auth-spring-security</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>
@@ -56,6 +46,11 @@
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-captcha-geetest</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-constants</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>
@@ -180,17 +175,7 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-shiro</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-sms</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-spring-security</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>

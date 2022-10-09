@@ -1,7 +1,7 @@
-package com.sakuraio.nk.web.utils;
+package com.sakuraio.nk.util.http;
 
 import com.google.common.collect.Maps;
-import com.sakuraio.nk.core.constants.Headers;
+import com.sakuraio.nk.constants.Headers;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +17,16 @@ import java.util.Map;
 public class RequestUtils {
 
     private RequestUtils() {
+    }
+
+    /**
+     * <p>是否是文件上传请求</p>
+     *
+     * @param request
+     * @return
+     */
+    public static boolean isRequestMultipartFormData(HttpServletRequest request) {
+        return StringUtils.startsWithIgnoreCase(request.getContentType(), "multipart/form-data");
     }
 
     /**
