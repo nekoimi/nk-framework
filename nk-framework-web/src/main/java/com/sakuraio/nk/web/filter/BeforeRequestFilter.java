@@ -3,6 +3,7 @@ package com.sakuraio.nk.web.filter;
 import com.sakuraio.nk.util.http.RequestUtils;
 import com.sakuraio.nk.web.wrapper.HttpRequestWrapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.Ordered;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -18,7 +19,7 @@ import java.io.IOException;
  * @author nekoimi 2022/10/04
  */
 @Slf4j
-public class BeforeRequestFilter extends OncePerRequestFilter {
+public class BeforeRequestFilter extends OncePerRequestFilter implements Ordered {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -40,5 +41,10 @@ public class BeforeRequestFilter extends OncePerRequestFilter {
         // next wrapper
         // 非文件上传表单，包装请求之后再执行后续逻辑
         filterChain.doFilter(new HttpRequestWrapper(request), response);
+    }
+
+    @Override
+    public int getOrder() {
+        return 100;
     }
 }

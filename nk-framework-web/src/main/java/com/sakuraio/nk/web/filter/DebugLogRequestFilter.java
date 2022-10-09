@@ -3,6 +3,7 @@ package com.sakuraio.nk.web.filter;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.Ordered;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -21,7 +22,7 @@ import java.util.List;
  * @author nekoimi 2022/10/04
  */
 @Slf4j
-public class DebugLogRequestFilter extends OncePerRequestFilter {
+public class DebugLogRequestFilter extends OncePerRequestFilter implements Ordered {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -59,5 +60,10 @@ public class DebugLogRequestFilter extends OncePerRequestFilter {
 
         // 请求处理后日志
 
+    }
+
+    @Override
+    public int getOrder() {
+        return 110;
     }
 }

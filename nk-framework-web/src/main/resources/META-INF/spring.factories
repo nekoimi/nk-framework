@@ -6,6 +6,8 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 org.springframework.context.ApplicationListener=\
   com.sakuraio.nk.web.listener.StartedLogListener
 
-# provider
-com.sakuraio.nk.auth.api.contract.BasicFilterProvider=\
-  com.sakuraio.nk.web.provider.WebBasicFilterProvider
+# filter
+javax.servlet.Filter=\
+  com.sakuraio.nk.web.filter.BeforeRequestFilter,\
+  com.sakuraio.nk.web.filter.DebugLogRequestFilter,\
+  com.sakuraio.nk.web.filter.TraceRequestFilter
