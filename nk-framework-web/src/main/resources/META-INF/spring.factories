@@ -1,6 +1,6 @@
 # configuration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.sakuraio.nk.web.config.WebCustomConfiguration
+  com.sakuraio.nk.web.config.WebConfiguration
 
 # listener
 org.springframework.context.ApplicationListener=\

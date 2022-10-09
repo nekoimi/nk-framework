@@ -15,7 +15,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableConfigurationProperties(
         CorsProperties.class
 )
-public class WebCustomConfiguration {
+public class WebConfiguration {
 
     @Bean
     public CorsConfiguration corsConfiguration(CorsProperties corsProperties) {
