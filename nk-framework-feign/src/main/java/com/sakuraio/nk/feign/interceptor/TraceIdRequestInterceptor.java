@@ -1,6 +1,6 @@
 package com.sakuraio.nk.feign.interceptor;
 
-import com.sakuraio.nk.core.constants.Headers;
+import com.sakuraio.nk.constants.Headers;
 import com.sakuraio.nk.core.trace.TraceIdGenerator;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;

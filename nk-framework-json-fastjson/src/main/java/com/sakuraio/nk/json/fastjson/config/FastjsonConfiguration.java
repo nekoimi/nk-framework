@@ -3,7 +3,7 @@ package com.sakuraio.nk.json.fastjson.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.sakuraio.nk.core.constants.TimeConstants;
+import com.sakuraio.nk.constants.TimeConstants;
 import com.sakuraio.nk.json.api.JsonOperations;
 import com.sakuraio.nk.json.fastjson.FastjsonJsonOperations;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;

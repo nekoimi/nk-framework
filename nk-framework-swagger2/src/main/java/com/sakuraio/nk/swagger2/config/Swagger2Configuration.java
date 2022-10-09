@@ -1,6 +1,6 @@
 package com.sakuraio.nk.swagger2.config;
 
-import com.sakuraio.nk.core.constants.Headers;
+import com.sakuraio.nk.constants.Headers;
 import com.sakuraio.nk.core.utils.SpringPropertyUtils;
 import com.sakuraio.nk.swagger2.config.properties.SwaggerProperties;
 import io.swagger.annotations.ApiOperation;

@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.sakuraio.nk.core.constants.TimeConstants;
+import com.sakuraio.nk.constants.TimeConstants;
 import com.sakuraio.nk.json.api.JsonOperations;
 import com.sakuraio.nk.json.jackson.JacksonJsonOperations;
 import com.sakuraio.nk.json.jackson.customizer.CustomJackson2ObjectMapperBuilderCustomizer;

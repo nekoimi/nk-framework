@@ -1,6 +1,6 @@
 package com.sakuraio.nk.feign;
 
-import com.sakuraio.nk.core.constants.Headers;
+import com.sakuraio.nk.constants.Headers;
 import feign.FeignException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
