@@ -67,6 +67,7 @@
         <shiro.version>1.9.1</shiro.version>
         <swagger2.version>2.10.5</swagger2.version>
         <swagger2-knife4j-ui.version>2.0.9</swagger2-knife4j-ui.version>
+        <google-collections.version>1.0</google-collections.version>
         <apache-commons-io.varsion>2.11.0</apache-commons-io.varsion>
     </properties>
 
@@ -134,6 +135,11 @@
                 <version>${swagger2-knife4j-ui.version}</version>
             </dependency>
             <!-- swagger2 - end -->
+            <dependency>
+                <groupId>com.google.collections</groupId>
+                <artifactId>google-collections</artifactId>
+                <version>${google-collections.version}</version>
+            </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>

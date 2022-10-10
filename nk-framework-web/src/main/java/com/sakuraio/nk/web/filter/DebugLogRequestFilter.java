@@ -56,7 +56,7 @@ public class DebugLogRequestFilter extends OncePerRequestFilter {
         if (request instanceof HttpRequestWrapper) {
             HttpRequestWrapper wrapperRequest = ((HttpRequestWrapper) request);
             String bodyJson = IOUtils.toString(wrapperRequest.getInputStream(), StandardCharsets.UTF_8);
-            requestLog.append(">>>> Body: \n {}\n");
+            requestLog.append(">>>> Body: \n{}\n");
             debugLogArgs.add(bodyJson);
         }
         requestLog.append("==================== Request End ====================\n\n");
