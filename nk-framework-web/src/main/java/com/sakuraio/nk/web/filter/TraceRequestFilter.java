@@ -5,7 +5,6 @@ import com.sakuraio.nk.util.http.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
-import org.springframework.core.Ordered;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -20,7 +19,7 @@ import java.io.IOException;
  * @author nekoimi 2022/10/06
  */
 @Slf4j
-public class TraceRequestFilter extends OncePerRequestFilter implements Ordered {
+public class TraceRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -34,10 +33,5 @@ public class TraceRequestFilter extends OncePerRequestFilter implements Ordered 
         } finally {
             MDC.remove(Headers.TRACE_ID);
         }
-    }
-
-    @Override
-    public int getOrder() {
-        return 120;
     }
 }
