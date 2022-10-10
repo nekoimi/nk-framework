@@ -24,9 +24,15 @@ import javax.servlet.Filter;
 )
 public class WebConfiguration {
     private static final StepJump FILTER_STEP_JUMP = StepJump.create(100, 10);
-    private static final int BEFORE_FILTER_ORDER = FILTER_STEP_JUMP.next();
-    private static final int DEBUG_LOG_FILTER_ORDER = FILTER_STEP_JUMP.next();
-    private static final int TRACE_FILTER_ORDER = FILTER_STEP_JUMP.next();
+    private static final int BEFORE_FILTER_ORDER;
+    private static final int DEBUG_LOG_FILTER_ORDER;
+    private static final int TRACE_FILTER_ORDER;
+
+    static {
+        BEFORE_FILTER_ORDER = FILTER_STEP_JUMP.next();
+        DEBUG_LOG_FILTER_ORDER = FILTER_STEP_JUMP.next();
+        TRACE_FILTER_ORDER = FILTER_STEP_JUMP.next();
+    }
 
     @Bean
     public CorsConfiguration corsConfiguration(CorsProperties corsProperties) {
@@ -52,7 +58,8 @@ public class WebConfiguration {
         FilterRegistrationBean<Filter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new BeforeRequestFilter());
         registrationBean.setOrder(BEFORE_FILTER_ORDER);
-        registrationBean.addUrlPatterns("/**");
+        registrationBean.addUrlPatterns("/*");
+        registrationBean.setName(BeforeRequestFilter.class.getName());
         return registrationBean;
     }
 
@@ -61,7 +68,8 @@ public class WebConfiguration {
         FilterRegistrationBean<Filter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new DebugLogRequestFilter());
         registrationBean.setOrder(DEBUG_LOG_FILTER_ORDER);
-        registrationBean.addUrlPatterns("/**");
+        registrationBean.addUrlPatterns("/*");
+        registrationBean.setName(DebugLogRequestFilter.class.getName());
         return registrationBean;
     }
 
@@ -70,7 +78,8 @@ public class WebConfiguration {
         FilterRegistrationBean<Filter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new TraceRequestFilter());
         registrationBean.setOrder(TRACE_FILTER_ORDER);
-        registrationBean.addUrlPatterns("/**");
+        registrationBean.addUrlPatterns("/*");
+        registrationBean.setName(TraceRequestFilter.class.getName());
         return registrationBean;
     }
 }

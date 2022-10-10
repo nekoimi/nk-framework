@@ -1,7 +1,9 @@
 package com.sakuraio.nk.web.filter;
 
 import com.google.common.collect.Lists;
+import com.sakuraio.nk.web.wrapper.HttpRequestWrapper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -46,11 +48,18 @@ public class DebugLogRequestFilter extends OncePerRequestFilter {
         // 请求Header
         Enumeration<String> headerNames = request.getHeaderNames();
         headerNames.asIterator().forEachRemaining(headerName -> {
-            requestLog.append("> Header {}: {}\n");
-            requestLog.append(headerName);
-            requestLog.append(StringUtils.join(request.getHeaders(headerName), ","));
+            requestLog.append("---> Header {}: {}\n");
+            debugLogArgs.add(headerName);
+            debugLogArgs.add(StringUtils.join(Lists.newArrayList(request.getHeaders(headerName).asIterator()), ","));
         });
-
+        // 请求Body
+        if (request instanceof HttpRequestWrapper) {
+            HttpRequestWrapper wrapperRequest = ((HttpRequestWrapper) request);
+            String bodyJson = IOUtils.toString(wrapperRequest.getInputStream(), StandardCharsets.UTF_8);
+            requestLog.append(">>>> Body: \n {}\n");
+            debugLogArgs.add(bodyJson);
+        }
+        requestLog.append("==================== Request End ====================\n\n");
         // 输出请求日志
         log.debug(requestLog.toString(), debugLogArgs.toArray());
 

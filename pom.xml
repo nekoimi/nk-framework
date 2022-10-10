@@ -67,6 +67,7 @@
         <shiro.version>1.9.1</shiro.version>
         <swagger2.version>2.10.5</swagger2.version>
         <swagger2-knife4j-ui.version>2.0.9</swagger2-knife4j-ui.version>
+        <apache-commons-io.varsion>2.11.0</apache-commons-io.varsion>
     </properties>
 
     <dependencyManagement>
@@ -133,6 +134,11 @@
                 <version>${swagger2-knife4j-ui.version}</version>
             </dependency>
             <!-- swagger2 - end -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${apache-commons-io.varsion}</version>
+            </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-constants</artifactId>
