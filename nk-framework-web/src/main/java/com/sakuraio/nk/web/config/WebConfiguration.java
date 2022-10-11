@@ -5,6 +5,7 @@ import com.sakuraio.nk.web.config.properties.CorsProperties;
 import com.sakuraio.nk.web.filter.BeforeRequestFilter;
 import com.sakuraio.nk.web.filter.DebugLogRequestFilter;
 import com.sakuraio.nk.web.filter.TraceRequestFilter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -64,6 +65,7 @@ public class WebConfiguration {
     }
 
     @Bean
+    @ConditionalOnProperty(name = "debug", havingValue = "true")
     public FilterRegistrationBean<Filter> registerDebugLogRequestFilter() {
         FilterRegistrationBean<Filter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new DebugLogRequestFilter());
