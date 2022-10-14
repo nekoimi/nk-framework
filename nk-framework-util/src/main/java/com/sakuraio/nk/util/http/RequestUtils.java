@@ -1,13 +1,12 @@
 package com.sakuraio.nk.util.http;
 
-import com.google.common.collect.Maps;
-import com.sakuraio.nk.constants.Headers;
+import cn.hutool.core.lang.Dict;
+import com.sakuraio.nk.constants.RequestConstants;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 
 /**
  * <p>RequestUtils</p>
@@ -36,7 +35,7 @@ public class RequestUtils {
      * @return
      */
     public static String getToken(HttpServletRequest request) {
-        String token = request.getHeader(Headers.AUTHORIZATION);
+        String token = request.getHeader(RequestConstants.HEADER_AUTHORIZATION);
         if (StringUtils.isBlank(token)) {
             return null;
         }
@@ -49,13 +48,27 @@ public class RequestUtils {
     }
 
     /**
+     * <p>获取AuthType</p>
+     *
+     * @param request
+     * @return
+     */
+    public static String getAuthType(HttpServletRequest request) {
+        String authType = request.getHeader(RequestConstants.HEADER_AUTH_TYPE);
+        if (StringUtils.isBlank(authType)) {
+            authType = queryAsDict(request.getQueryString()).getStr(RequestConstants.QUERY_AUTH_TYPE);
+        }
+        return authType;
+    }
+
+    /**
      * <p>获取 TraceId</p>
      *
      * @param request
      * @return
      */
     public static String getTraceId(HttpServletRequest request) {
-        return request.getHeader(Headers.TRACE_ID);
+        return request.getHeader(RequestConstants.HEADER_TRACE_ID);
     }
 
     /**
@@ -64,10 +77,10 @@ public class RequestUtils {
      * @param queryString
      * @return
      */
-    public static Map<String, String> queryAsMap(String queryString) {
-        Map<String, String> queryMap = Maps.newHashMap();
+    public static Dict queryAsDict(String queryString) {
+        Dict queryDict = Dict.create();
         if (StringUtils.isBlank(queryString)) {
-            return queryMap;
+            return queryDict;
         }
         if (queryString.startsWith("?")) {
             queryString = queryString.substring(1);
@@ -77,12 +90,12 @@ public class RequestUtils {
             if (StringUtils.isNotBlank(kv)) {
                 String[] kAndV = kv.split("=");
                 if (kAndV.length >= 2) {
-                    queryMap.put(kAndV[0], URLDecoder.decode(kAndV[1], StandardCharsets.UTF_8));
+                    queryDict.put(kAndV[0], URLDecoder.decode(kAndV[1], StandardCharsets.UTF_8));
                 } else {
-                    queryMap.put(kAndV[0], null);
+                    queryDict.put(kAndV[0], null);
                 }
             }
         }
-        return queryMap;
+        return queryDict;
     }
 }

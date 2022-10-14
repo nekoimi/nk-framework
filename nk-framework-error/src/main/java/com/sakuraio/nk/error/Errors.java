@@ -10,6 +10,9 @@ import com.sakuraio.nk.core.contract.ErrorDetails;
 public enum Errors implements ErrorDetails {
     // OK
     OK(0, "ok"),
+
+    LOGIN_SUPPORTS_EXCEPTION(100201, "不支持当前认证方式"),
+
     // 客户端请求异常
     CLIENT_ERROR(190400, "无效的请求！"),
     // 未捕获的异常，系统发生致命错误，提示系统维护更新!

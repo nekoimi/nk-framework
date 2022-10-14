@@ -1,6 +1,6 @@
 package com.sakuraio.nk.swagger2.config;
 
-import com.sakuraio.nk.constants.Headers;
+import com.sakuraio.nk.constants.RequestConstants;
 import com.sakuraio.nk.core.utils.SpringPropertyUtils;
 import com.sakuraio.nk.swagger2.config.properties.SwaggerProperties;
 import io.swagger.annotations.ApiOperation;
@@ -71,7 +71,7 @@ public class Swagger2Configuration {
 
     private List<ApiKey> securitySchemes() {
         List<ApiKey> apiKeys = new ArrayList<>();
-        apiKeys.add(new ApiKey(Headers.AUTHORIZATION, Headers.AUTHORIZATION, "header"));
+        apiKeys.add(new ApiKey(RequestConstants.HEADER_AUTHORIZATION, RequestConstants.HEADER_AUTHORIZATION, "header"));
         return apiKeys;
     }
 
@@ -98,7 +98,7 @@ public class Swagger2Configuration {
         AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
         authorizationScopes[0] = authorizationScope;
         List<SecurityReference> securityReferences = new ArrayList<>();
-        securityReferences.add(new SecurityReference(Headers.AUTHORIZATION, authorizationScopes));
+        securityReferences.add(new SecurityReference(RequestConstants.HEADER_AUTHORIZATION, authorizationScopes));
         return securityReferences;
     }
 }

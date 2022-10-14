@@ -13,6 +13,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.google.collections</groupId>
             <artifactId>google-collections</artifactId>
         </dependency>

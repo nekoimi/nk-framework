@@ -4,36 +4,22 @@ import com.sakuraio.nk.core.contract.ErrorDetails;
 
 /**
  * <p>BizException</p>
+ * <p>
+ * 业务异常
  *
  * @author nekoimi 2022/10/04
  */
-public class BizException extends RuntimeException {
-    private final Integer code;
-    private final String trace;
+public class BizException extends BaseRuntimeException {
 
     public BizException(Integer code, String message) {
-        super(message);
-        this.code = code;
-        this.trace = null;
+        super(code, message);
     }
 
     public BizException(Integer code, String message, String trace) {
-        super(message);
-        this.code = code;
-        this.trace = trace;
+        super(code, message, trace);
     }
 
     public BizException(ErrorDetails errorDetails) {
-        super(errorDetails.message());
-        this.code = errorDetails.code();
-        this.trace = errorDetails.trace();
-    }
-
-    public Integer getCode() {
-        return this.code;
-    }
-
-    public String getTrace() {
-        return this.trace;
+        super(errorDetails);
     }
 }

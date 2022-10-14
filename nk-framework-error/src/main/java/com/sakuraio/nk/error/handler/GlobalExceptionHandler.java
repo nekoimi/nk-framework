@@ -2,7 +2,7 @@ package com.sakuraio.nk.error.handler;
 
 import com.sakuraio.nk.core.protocol.BaseResponse;
 import com.sakuraio.nk.error.Errors;
-import com.sakuraio.nk.error.exception.BizException;
+import com.sakuraio.nk.error.exception.BaseRuntimeException;
 import com.sakuraio.nk.error.utils.ErrorUtils;
 import com.sakuraio.nk.error.vo.ErrorDetailsVO;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +19,8 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(value = BizException.class)
-    public BaseResponse<ErrorDetailsVO> bizExceptionHandler(BizException e) {
+    @ExceptionHandler(value = BaseRuntimeException.class)
+    public BaseResponse<ErrorDetailsVO> bizExceptionHandler(BaseRuntimeException e) {
         log.error("业务异常: {}", e.getMessage());
         e.printStackTrace();
         return BaseResponse.error(ErrorDetailsVO.of(

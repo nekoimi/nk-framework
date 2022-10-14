@@ -1,6 +1,6 @@
 package com.sakuraio.nk.feign;
 
-import com.sakuraio.nk.constants.Headers;
+import com.sakuraio.nk.constants.RequestConstants;
 import feign.FeignException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
@@ -28,7 +28,7 @@ public abstract class AbstractFeignFallback<T> implements FallbackFactory<T> {
             if (fe.hasRequest()) {
                 errorLog.append("method: ").append(fe.request().httpMethod().name()).append(";");
                 errorLog.append("url: ").append(fe.request().url()).append(";");
-                Collection<String> traceIdCollection = fe.request().headers().get(Headers.TRACE_ID);
+                Collection<String> traceIdCollection = fe.request().headers().get(RequestConstants.HEADER_TRACE_ID);
                 if (CollectionUtils.isNotEmpty(traceIdCollection)) {
                     errorLog.append("traceId: ").append(
                             traceIdCollection.stream().findFirst().orElse("")

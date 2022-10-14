@@ -67,6 +67,7 @@
         <shiro.version>1.9.1</shiro.version>
         <swagger2.version>2.10.5</swagger2.version>
         <swagger2-knife4j-ui.version>2.0.9</swagger2-knife4j-ui.version>
+        <hutool.version>5.8.8</hutool.version>
         <google-collections.version>1.0</google-collections.version>
         <apache-commons-io.varsion>2.11.0</apache-commons-io.varsion>
     </properties>
@@ -109,7 +110,7 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring-boot-web-starter</artifactId>
+                <artifactId>shiro-spring</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
             <!-- swagger2 - start -->
@@ -135,6 +136,11 @@
                 <version>${swagger2-knife4j-ui.version}</version>
             </dependency>
             <!-- swagger2 - end -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.google.collections</groupId>
                 <artifactId>google-collections</artifactId>
@@ -163,6 +169,11 @@
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-util</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-error</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>

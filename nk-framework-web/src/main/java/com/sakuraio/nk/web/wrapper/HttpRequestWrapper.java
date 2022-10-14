@@ -1,5 +1,6 @@
 package com.sakuraio.nk.web.wrapper;
 
+import cn.hutool.core.lang.Dict;
 import com.sakuraio.nk.util.http.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
@@ -16,7 +17,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Map;
 
 /**
  * nekoimi  2021/7/20 下午2:23
@@ -104,8 +104,8 @@ public class HttpRequestWrapper extends HttpServletRequestWrapper {
         return ipAddress;
     }
 
-    public Map<String, String> queryAsMap() {
-        return RequestUtils.queryAsMap(this.getQueryString());
+    public Dict queryAsDict() {
+        return RequestUtils.queryAsDict(this.getQueryString());
     }
 
 }

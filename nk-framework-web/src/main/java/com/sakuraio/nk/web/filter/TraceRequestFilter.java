@@ -1,6 +1,6 @@
 package com.sakuraio.nk.web.filter;
 
-import com.sakuraio.nk.constants.Headers;
+import com.sakuraio.nk.constants.RequestConstants;
 import com.sakuraio.nk.util.http.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -27,11 +27,11 @@ public class TraceRequestFilter extends OncePerRequestFilter {
         try {
             String traceId = RequestUtils.getTraceId(request);
             if (StringUtils.isNotBlank(traceId)) {
-                MDC.put(Headers.TRACE_ID, traceId);
+                MDC.put(RequestConstants.HEADER_TRACE_ID, traceId);
             }
             filterChain.doFilter(request, response);
         } finally {
-            MDC.remove(Headers.TRACE_ID);
+            MDC.remove(RequestConstants.HEADER_TRACE_ID);
         }
     }
 }
