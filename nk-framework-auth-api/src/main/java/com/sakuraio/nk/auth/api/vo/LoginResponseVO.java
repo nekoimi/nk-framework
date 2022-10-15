@@ -1,6 +1,6 @@
 package com.sakuraio.nk.auth.api.vo;
 
-import com.sakuraio.nk.auth.api.contract.JwtSubject;
+import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

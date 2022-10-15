@@ -2,8 +2,8 @@ package com.sakuraio.nk.auth.api.handler;
 
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.sakuraio.nk.auth.api.contract.AccessHandler;
-import com.sakuraio.nk.auth.api.contract.JwtCacheManager;
-import com.sakuraio.nk.auth.api.contract.JwtSubject;
+import com.sakuraio.nk.auth.api.contract.jwt.JwtCacheManager;
+import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
 import com.sakuraio.nk.auth.api.exception.TokenCannotBeRefreshException;
 import com.sakuraio.nk.auth.api.exception.TokenExpireException;
 import com.sakuraio.nk.auth.api.exception.TokenInvalidException;

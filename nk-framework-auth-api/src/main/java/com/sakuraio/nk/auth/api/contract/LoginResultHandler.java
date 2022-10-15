@@ -1,5 +1,6 @@
 package com.sakuraio.nk.auth.api.contract;
 
+import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
 import com.sakuraio.nk.auth.api.exception.LoginFailedException;
 
 import javax.servlet.http.HttpServletRequest;

@@ -2,7 +2,7 @@ package com.sakuraio.nk.auth.api.config;
 
 import com.sakuraio.nk.auth.api.config.properties.AuthProperties;
 import com.sakuraio.nk.auth.api.contract.AccessHandler;
-import com.sakuraio.nk.auth.api.contract.JwtCacheManager;
+import com.sakuraio.nk.auth.api.contract.jwt.JwtCacheManager;
 import com.sakuraio.nk.auth.api.contract.LoginResultHandler;
 import com.sakuraio.nk.auth.api.handler.DefaultAccessHandler;
 import com.sakuraio.nk.auth.api.handler.DefaultLoginResultHandler;

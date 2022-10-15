@@ -1,6 +1,6 @@
 package com.sakuraio.nk.auth.api.sso;
 
-import com.sakuraio.nk.auth.api.contract.JwtSubject;
+import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
 
 /**
  * <p>SsoUtils</p>

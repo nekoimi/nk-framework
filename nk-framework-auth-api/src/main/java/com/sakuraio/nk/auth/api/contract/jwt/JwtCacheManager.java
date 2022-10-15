@@ -1,4 +1,4 @@
-package com.sakuraio.nk.auth.api.contract;
+package com.sakuraio.nk.auth.api.contract.jwt;
 
 /**
  * <p>JwtCacheManager</p>

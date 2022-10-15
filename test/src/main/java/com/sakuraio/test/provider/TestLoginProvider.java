@@ -1,7 +1,7 @@
 package com.sakuraio.test.provider;
 
 import cn.hutool.core.lang.Dict;
-import com.sakuraio.nk.auth.api.contract.JwtSubject;
+import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
 import com.sakuraio.nk.auth.api.provider.AbstractLoginServiceProvider;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package com.sakuraio.nk.auth.security.realm;
 
-import com.sakuraio.nk.auth.api.contract.JwtSubject;
+import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
 import com.sakuraio.nk.auth.api.contract.LoginServiceProvider;
 import com.sakuraio.nk.auth.api.contract.LoginToken;
 import com.sakuraio.nk.error.Errors;

@@ -1,6 +1,6 @@
 package com.sakuraio.nk.auth.security.filter;
 
-import com.sakuraio.nk.auth.api.contract.JwtSubject;
+import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
 import com.sakuraio.nk.auth.api.contract.LoginResultHandler;
 import com.sakuraio.nk.auth.api.contract.LoginToken;
 import com.sakuraio.nk.auth.api.exception.LoginFailedException;
