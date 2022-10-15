@@ -21,7 +21,6 @@
         <module>nk-framework-dictionary</module>
         <module>nk-framework-elasticsearch</module>
         <module>nk-framework-email</module>
-        <module>nk-framework-error</module>
         <module>nk-framework-excel</module>
         <module>nk-framework-feign</module>
         <module>nk-framework-file-api</module>
@@ -182,11 +181,6 @@
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-util</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-error</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>

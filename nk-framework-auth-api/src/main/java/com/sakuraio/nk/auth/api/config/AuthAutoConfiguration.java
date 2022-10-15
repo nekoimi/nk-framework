@@ -7,6 +7,7 @@ import com.sakuraio.nk.auth.api.contract.LoginResultHandler;
 import com.sakuraio.nk.auth.api.handler.DefaultAccessHandler;
 import com.sakuraio.nk.auth.api.handler.DefaultLoginResultHandler;
 import com.sakuraio.nk.auth.api.jwt.RedisJwtCacheManager;
+import com.sakuraio.nk.auth.api.service.JwtSubjectRemoteService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -34,12 +35,13 @@ public class AuthAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(AccessHandler.class)
-    public AccessHandler accessHandler(JwtCacheManager cacheManager) {
-        return new DefaultAccessHandler(cacheManager);
+    public AccessHandler accessHandler(JwtCacheManager cacheManager, JwtSubjectRemoteService jwtSubjectService) {
+        return new DefaultAccessHandler(cacheManager, jwtSubjectService);
     }
 
     @Bean
-    public JwtInitializingPropertiesSet jwtInitializingPropertiesSet(AuthProperties authProperties) {
-        return new JwtInitializingPropertiesSet(authProperties);
+    public JwtInitializingPropertiesSet jwtInitializingPropertiesSet(
+            AuthProperties authProperties, JwtSubjectRemoteService jwtSubjectService) {
+        return new JwtInitializingPropertiesSet(authProperties, jwtSubjectService);
     }
 }

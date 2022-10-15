@@ -8,9 +8,12 @@ import com.sakuraio.nk.auth.api.exception.TokenCannotBeRefreshException;
 import com.sakuraio.nk.auth.api.exception.TokenExpireException;
 import com.sakuraio.nk.auth.api.exception.TokenInvalidException;
 import com.sakuraio.nk.auth.api.jwt.JwtUtils;
+import com.sakuraio.nk.auth.api.service.JwtSubjectRemoteService;
 import com.sakuraio.nk.auth.api.sso.SsoContext;
 import com.sakuraio.nk.constants.RequestConstants;
-import com.sakuraio.nk.error.exception.RequestValidationException;
+import com.sakuraio.nk.core.error.exception.RequestValidationException;
+import com.sakuraio.nk.core.protocol.BaseResponse;
+import com.sakuraio.nk.core.utils.BaseResponseUtils;
 import com.sakuraio.nk.util.http.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -28,9 +31,11 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class DefaultAccessHandler implements AccessHandler {
     private final JwtCacheManager cacheManager;
+    private final JwtSubjectRemoteService jwtSubjectService;
 
-    public DefaultAccessHandler(JwtCacheManager cacheManager) {
+    public DefaultAccessHandler(JwtCacheManager cacheManager, JwtSubjectRemoteService jwtSubjectService) {
         this.cacheManager = cacheManager;
+        this.jwtSubjectService = jwtSubjectService;
     }
 
     @Override
@@ -81,8 +86,8 @@ public class DefaultAccessHandler implements AccessHandler {
         }
 
         String sub = JwtUtils.decodeSub(finalToken);
-        // TODO 根据 sub 查询认证对象
-        JwtSubject subject = null;
+        BaseResponse<JwtSubject> baseResponse = jwtSubjectService.loadByIdentifier(sub);
+        JwtSubject subject = BaseResponseUtils.resolveResponse(baseResponse);
         if (subject == null) {
             log.error("token验证异常，解析token获取sub，使用sub查找认证对象为空，sub: {}", sub);
             throw new TokenInvalidException();

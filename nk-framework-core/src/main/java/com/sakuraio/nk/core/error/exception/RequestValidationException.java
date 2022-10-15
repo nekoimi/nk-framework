@@ -1,6 +1,6 @@
-package com.sakuraio.nk.error.exception;
+package com.sakuraio.nk.core.error.exception;
 
-import com.sakuraio.nk.error.Errors;
+import com.sakuraio.nk.core.error.Errors;
 
 /**
  * <p>RequestValidationException</p>

@@ -1,7 +1,7 @@
 package com.sakuraio.nk.auth.api.exception;
 
-import com.sakuraio.nk.error.Errors;
-import com.sakuraio.nk.error.exception.BaseRuntimeException;
+import com.sakuraio.nk.core.error.Errors;
+import com.sakuraio.nk.core.error.exception.BaseRuntimeException;
 
 /**
  * <p>TokenInvalidException</p>

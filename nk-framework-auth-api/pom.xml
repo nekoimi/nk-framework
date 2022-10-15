@@ -18,10 +18,6 @@
         </dependency>
         <dependency>
             <groupId>com.sakuraio.nk</groupId>
-            <artifactId>nk-framework-error</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.sakuraio.nk</groupId>
             <artifactId>nk-framework-json-api</artifactId>
         </dependency>
         <dependency>

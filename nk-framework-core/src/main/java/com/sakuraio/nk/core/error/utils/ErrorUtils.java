@@ -1,4 +1,4 @@
-package com.sakuraio.nk.error.utils;
+package com.sakuraio.nk.core.error.utils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

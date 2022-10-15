@@ -1,4 +1,4 @@
-package com.sakuraio.nk.error;
+package com.sakuraio.nk.core.error;
 
 import com.sakuraio.nk.core.contract.ErrorDetails;
 

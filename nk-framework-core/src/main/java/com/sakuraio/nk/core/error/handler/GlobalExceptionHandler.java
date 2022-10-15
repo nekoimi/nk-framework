@@ -1,10 +1,10 @@
-package com.sakuraio.nk.error.handler;
+package com.sakuraio.nk.core.error.handler;
 
+import com.sakuraio.nk.core.error.Errors;
+import com.sakuraio.nk.core.error.exception.BaseRuntimeException;
+import com.sakuraio.nk.core.error.utils.ErrorUtils;
+import com.sakuraio.nk.core.error.vo.ErrorDetailsVO;
 import com.sakuraio.nk.core.protocol.BaseResponse;
-import com.sakuraio.nk.error.Errors;
-import com.sakuraio.nk.error.exception.BaseRuntimeException;
-import com.sakuraio.nk.error.utils.ErrorUtils;
-import com.sakuraio.nk.error.vo.ErrorDetailsVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

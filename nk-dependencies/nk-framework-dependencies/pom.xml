@@ -80,11 +80,6 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-error</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-excel</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>

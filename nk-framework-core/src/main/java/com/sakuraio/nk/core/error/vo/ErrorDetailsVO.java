@@ -1,4 +1,4 @@
-package com.sakuraio.nk.error.vo;
+package com.sakuraio.nk.core.error.vo;
 
 import com.sakuraio.nk.core.contract.ErrorDetails;
 import lombok.*;
