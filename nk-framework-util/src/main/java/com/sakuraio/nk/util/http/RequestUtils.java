@@ -37,7 +37,7 @@ public class RequestUtils {
     public static String getToken(HttpServletRequest request) {
         String token = request.getHeader(RequestConstants.HEADER_AUTHORIZATION);
         if (StringUtils.isBlank(token)) {
-            return null;
+            token = getQueryDict(request.getQueryString()).getStr("token");
         }
 
         if (StringUtils.startsWith(token, "Bearer ")) {
@@ -56,7 +56,7 @@ public class RequestUtils {
     public static String getAuthType(HttpServletRequest request) {
         String authType = request.getHeader(RequestConstants.HEADER_AUTH_TYPE);
         if (StringUtils.isBlank(authType)) {
-            authType = queryAsDict(request.getQueryString()).getStr(RequestConstants.QUERY_AUTH_TYPE);
+            authType = getQueryDict(request.getQueryString()).getStr(RequestConstants.QUERY_AUTH_TYPE);
         }
         return authType;
     }
@@ -77,7 +77,7 @@ public class RequestUtils {
      * @param queryString
      * @return
      */
-    public static Dict queryAsDict(String queryString) {
+    public static Dict getQueryDict(String queryString) {
         Dict queryDict = Dict.create();
         if (StringUtils.isBlank(queryString)) {
             return queryDict;

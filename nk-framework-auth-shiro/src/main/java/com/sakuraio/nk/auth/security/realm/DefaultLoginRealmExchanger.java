@@ -40,6 +40,6 @@ public class DefaultLoginRealmExchanger extends AbstractLoginRealmExchanger {
             throw new AuthenticationException(e.getMessage());
         }
         // not supports
-        throw new AuthenticationException(Errors.LOGIN_SUPPORTS_EXCEPTION.message());
+        throw new AuthenticationException(Errors.AUTH_TYPE_NOT_SUPPORTS_EXCEPTION.message());
     }
 }

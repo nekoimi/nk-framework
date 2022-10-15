@@ -1,6 +1,6 @@
 package com.sakuraio.nk.auth.api.contract;
 
-import com.sakuraio.nk.error.exception.LoginException;
+import com.sakuraio.nk.auth.api.exception.LoginFailedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +21,7 @@ public interface LoginResultHandler {
      * @param response
      * @param e
      */
-    void handleLoginFailure(HttpServletRequest request, HttpServletResponse response, LoginException e);
+    void handleLoginFailure(HttpServletRequest request, HttpServletResponse response, LoginFailedException e);
 
     /**
      * <p>登录认证成功回调</p>

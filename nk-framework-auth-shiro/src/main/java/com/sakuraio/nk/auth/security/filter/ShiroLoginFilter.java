@@ -3,8 +3,8 @@ package com.sakuraio.nk.auth.security.filter;
 import com.sakuraio.nk.auth.api.contract.JwtSubject;
 import com.sakuraio.nk.auth.api.contract.LoginResultHandler;
 import com.sakuraio.nk.auth.api.contract.LoginToken;
+import com.sakuraio.nk.auth.api.exception.LoginFailedException;
 import com.sakuraio.nk.auth.security.wrapper.LoginTokenWrapper;
-import com.sakuraio.nk.error.exception.LoginException;
 import com.sakuraio.nk.util.http.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
@@ -54,7 +54,7 @@ public class ShiroLoginFilter extends AuthenticatingFilter {
     @Override
     protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
         log.debug("onLoginFailure: 登录失败处理");
-        loginResultHandler.handleLoginFailure((HttpServletRequest) request, (HttpServletResponse) response, new LoginException(0, e.getMessage()));
+        loginResultHandler.handleLoginFailure((HttpServletRequest) request, (HttpServletResponse) response, new LoginFailedException(0, e.getMessage()));
         return super.onLoginFailure(token, e, request, response);
     }
 

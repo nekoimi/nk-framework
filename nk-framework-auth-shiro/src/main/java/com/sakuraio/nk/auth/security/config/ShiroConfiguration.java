@@ -2,6 +2,7 @@ package com.sakuraio.nk.auth.security.config;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.sakuraio.nk.auth.api.UrlAllow;
 import com.sakuraio.nk.auth.api.config.properties.AuthProperties;
 import com.sakuraio.nk.auth.api.contract.AccessHandler;
 import com.sakuraio.nk.auth.api.contract.LoginServiceProvider;
@@ -83,6 +84,7 @@ public class ShiroConfiguration {
         filterMap.put(AUTH_ACCESS, new ShiroAccessFilter(accessHandler));
         filterFactoryBean.setFilters(filterMap);
         Map<String, String> filterRuleMap = Maps.newHashMap();
+        UrlAllow.getUrlAllowList().forEach(urlPath -> filterRuleMap.put(urlPath, DefaultFilter.anon.name()));
         filterRuleMap.put(authProperties.getLoginPath(), AUTH_LOGIN);
         filterRuleMap.put(authProperties.getLogoutPath(), DefaultFilter.logout.name());
         filterRuleMap.put("/**", AUTH_ACCESS);

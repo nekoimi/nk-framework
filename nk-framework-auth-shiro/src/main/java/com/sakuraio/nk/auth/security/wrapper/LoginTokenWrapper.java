@@ -32,7 +32,7 @@ public class LoginTokenWrapper implements AuthenticationToken, LoginToken {
         // 合并 queryString、body
         this.loginParam = Dict.create();
         // query
-        this.loginParam.putAll(RequestUtils.queryAsDict(request.getQueryString()));
+        this.loginParam.putAll(RequestUtils.getQueryDict(request.getQueryString()));
         // body
         try {
             String jsonString = StreamUtils.copyToString(request.getInputStream(), StandardCharsets.UTF_8);

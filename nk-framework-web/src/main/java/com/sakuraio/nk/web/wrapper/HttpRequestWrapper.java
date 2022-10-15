@@ -105,7 +105,7 @@ public class HttpRequestWrapper extends HttpServletRequestWrapper {
     }
 
     public Dict queryAsDict() {
-        return RequestUtils.queryAsDict(this.getQueryString());
+        return RequestUtils.getQueryDict(this.getQueryString());
     }
 
 }
