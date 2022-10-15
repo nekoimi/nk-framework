@@ -3,7 +3,8 @@ package com.sakuraio.nk.auth.security.config;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.sakuraio.nk.auth.api.config.properties.AuthProperties;
-import com.sakuraio.nk.auth.api.contract.LoginProvider;
+import com.sakuraio.nk.auth.api.contract.AccessHandler;
+import com.sakuraio.nk.auth.api.contract.LoginServiceProvider;
 import com.sakuraio.nk.auth.api.contract.LoginResultHandler;
 import com.sakuraio.nk.auth.security.factory.DefaultJwtSubjectFactory;
 import com.sakuraio.nk.auth.security.filter.ShiroAccessFilter;
@@ -19,7 +20,6 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
 import java.util.List;
@@ -30,7 +30,6 @@ import java.util.Map;
  *
  * @author nekoimi 2022/10/13
  */
-@Configuration
 public class ShiroConfiguration {
     private static final String AUTH_LOGIN = "authLogin";
     private static final String AUTH_ACCESS = "authAccess";
@@ -42,12 +41,13 @@ public class ShiroConfiguration {
     }
 
     @Bean
-    @ConditionalOnBean(LoginProvider.class)
-    public Realm realm(ObjectProvider<List<LoginProvider>> listObjectProvider) {
+    @ConditionalOnBean(LoginServiceProvider.class)
+    public Realm realm(ObjectProvider<List<LoginServiceProvider>> listObjectProvider) {
         return new DefaultLoginRealmExchanger(listObjectProvider.getIfAvailable());
     }
 
     @Bean
+    @ConditionalOnBean(LoginServiceProvider.class)
     public DefaultWebSecurityManager webSecurityManager(Realm realm, SubjectFactory subjectFactory) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         DefaultSubjectDAO subjectDAO = new DefaultSubjectDAO();
@@ -57,18 +57,20 @@ public class ShiroConfiguration {
         securityManager.setRealm(realm);
         securityManager.setSubjectDAO(subjectDAO);
         securityManager.setSubjectFactory(subjectFactory);
+        securityManager.setRememberMeManager(null);
         return securityManager;
     }
 
     @Bean
-    @ConditionalOnBean(LoginResultHandler.class)
+    @ConditionalOnBean(LoginServiceProvider.class)
     public ShiroFilterFactoryBean shiroFilterFactoryBean(
             AuthProperties authProperties,
             DefaultWebSecurityManager securityManager,
-            LoginResultHandler loginResultHandler) {
+            LoginResultHandler loginResultHandler,
+            AccessHandler accessHandler) {
         ShiroFilterFactoryBean filterFactoryBean = new ShiroFilterFactoryBean();
         filterFactoryBean.setSecurityManager(securityManager);
-        filterFactoryBean.setLoginUrl(UNAUTHENTICATED);
+        filterFactoryBean.setLoginUrl(authProperties.getLoginPath());
         filterFactoryBean.setUnauthorizedUrl(UNAUTHENTICATED);
         filterFactoryBean.setSuccessUrl(UNAUTHENTICATED);
         // 添加Filter配置
@@ -78,7 +80,7 @@ public class ShiroConfiguration {
         filterMap.put(DefaultFilter.logout.name(), DefaultFilter.logout.newInstance());
         // 添加自定义的拦截JwtFilter
         filterMap.put(AUTH_LOGIN, new ShiroLoginFilter(loginResultHandler));
-        filterMap.put(AUTH_ACCESS, new ShiroAccessFilter());
+        filterMap.put(AUTH_ACCESS, new ShiroAccessFilter(accessHandler));
         filterFactoryBean.setFilters(filterMap);
         Map<String, String> filterRuleMap = Maps.newHashMap();
         filterRuleMap.put(authProperties.getLoginPath(), AUTH_LOGIN);

@@ -3,11 +3,11 @@ package com.sakuraio.nk.auth.api.contract;
 import cn.hutool.core.lang.Dict;
 
 /**
- * <p>LoginProvider</p>
+ * <p>LoginServiceProvider</p>
  *
  * @author nekoimi 2022/10/14
  */
-public interface LoginProvider {
+public interface LoginServiceProvider {
 
     /**
      * <p>认证类型</p>

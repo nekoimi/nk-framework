@@ -2,6 +2,7 @@ package com.sakuraio.nk.auth.api.contract;
 
 import com.google.common.collect.Maps;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Map;
  *
  * @author nekoimi 2022/10/14
  */
-public interface JwtSubject {
+public interface JwtSubject extends Serializable {
 
     /**
      * <p>唯一标识</p>
@@ -19,6 +20,13 @@ public interface JwtSubject {
      * @return
      */
     String getIdentifier();
+
+    /**
+     * <p>获取显示名称</p>
+     *
+     * @return
+     */
+    String getUsername();
 
     default boolean isAccountNonExpired() {
         return true;

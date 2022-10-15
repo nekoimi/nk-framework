@@ -1,4 +1,0 @@
-# configuration
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.sakuraio.nk.auth.security.config.ShiroConfiguration
-
