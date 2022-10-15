@@ -107,5 +107,7 @@ public class DefaultAccessHandler implements AccessHandler {
         SsoContext.setToken(finalToken);
         SsoContext.setIdentifier(subject.getIdentifier());
         SsoContext.setJwtSubject(subject);
+
+        log.debug("SsoContext: {}", subject.getIdentifier());
     }
 }

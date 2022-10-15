@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * <p>JwtSubjectRemoteService</p>
  * <p>
  * 认证对象接口，根据需求导入不同实现
+ * 认证服务器：使用本地实现
+ * 非认证服务器：使用openfeign-client实现
  *
  * @author nekoimi 2022/10/15
  */
