@@ -2,7 +2,7 @@ package com.sakuraio.nk.auth.api.sso;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.google.common.collect.Maps;
-import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
+import com.sakuraio.nk.auth.api.contract.JwtSubject;
 
 import java.util.Map;
 

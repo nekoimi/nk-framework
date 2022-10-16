@@ -1,10 +1,10 @@
-package com.sakuraio.nk.auth.api.handler;
+package com.sakuraio.nk.auth.server.handler;
 
-import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
+import com.sakuraio.nk.auth.api.contract.JwtSubject;
 import com.sakuraio.nk.auth.api.contract.LoginResultHandler;
 import com.sakuraio.nk.auth.api.exception.LoginFailedException;
-import com.sakuraio.nk.auth.api.jwt.JwtUtils;
-import com.sakuraio.nk.auth.api.vo.LoginResponseVO;
+import com.sakuraio.nk.auth.server.utils.JwtUtils;
+import com.sakuraio.nk.auth.server.vo.LoginResponseVO;
 import com.sakuraio.nk.constants.RequestConstants;
 import com.sakuraio.nk.core.error.vo.ErrorDetailsVO;
 import com.sakuraio.nk.core.protocol.BaseResponse;

@@ -1,4 +1,4 @@
-package com.sakuraio.nk.auth.api.provider;
+package com.sakuraio.nk.auth.server.provider;
 
 import com.sakuraio.nk.auth.api.contract.LoginServiceProvider;
 

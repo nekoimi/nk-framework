@@ -1,8 +1,8 @@
 package com.sakuraio.nk.auth.api.sso;
 
-import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
-import com.sakuraio.nk.auth.api.jwt.JwtUtils;
-import com.sakuraio.nk.auth.api.service.JwtSubjectRemoteService;
+import com.sakuraio.nk.auth.api.contract.JwtSubject;
+import com.sakuraio.nk.auth.api.service.AuthRemoteService;
+import com.sakuraio.nk.auth.api.vo.AccessResponseVO;
 import com.sakuraio.nk.core.protocol.BaseResponse;
 import com.sakuraio.nk.core.utils.BaseResponseUtils;
 
@@ -14,13 +14,13 @@ import com.sakuraio.nk.core.utils.BaseResponseUtils;
  * @author nekoimi 2022/10/14
  */
 public class SsoUtils {
-    private static JwtSubjectRemoteService jwtSubjectService;
+    private static AuthRemoteService authService;
 
     private SsoUtils() {
     }
 
-    public static void setJwtSubjectService(JwtSubjectRemoteService jwtSubjectService) {
-        SsoUtils.jwtSubjectService = jwtSubjectService;
+    public static void setAuthService(AuthRemoteService authRemoteService) {
+        SsoUtils.authService = authRemoteService;
     }
 
     /**
@@ -51,9 +51,11 @@ public class SsoUtils {
         JwtSubject subject = SsoContext.currentJwtSubject();
         if (subject == null) {
             String token = SsoContext.currentToken();
-            String sub = JwtUtils.decodeSub(token);
-            BaseResponse<JwtSubject> baseResponse = jwtSubjectService.loadByIdentifier(sub);
-            subject = BaseResponseUtils.resolveResponseNonNull(baseResponse);
+            BaseResponse<AccessResponseVO> baseResponse = authService.authorization(token);
+            AccessResponseVO accessResponseVO = BaseResponseUtils.resolveResponseNonNull(baseResponse);
+            String accessToken = accessResponseVO.getAccessToken();
+            subject = accessResponseVO.getSubject();
+            SsoContext.setToken(accessToken);
             SsoContext.setIdentifier(subject.getIdentifier());
             SsoContext.setJwtSubject(subject);
         }

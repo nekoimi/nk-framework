@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
  *
  * @author nekoimi 2022/10/02
  */
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.sakuraio.nk")
 @EnableConfigurationProperties(
         FeignProperties.class
 )

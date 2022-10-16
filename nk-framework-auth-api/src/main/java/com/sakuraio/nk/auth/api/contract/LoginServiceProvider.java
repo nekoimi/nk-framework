@@ -1,7 +1,6 @@
 package com.sakuraio.nk.auth.api.contract;
 
 import cn.hutool.core.lang.Dict;
-import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
 
 /**
  * <p>LoginServiceProvider</p>

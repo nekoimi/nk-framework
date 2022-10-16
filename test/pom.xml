@@ -38,6 +38,14 @@
         </dependency>
         <dependency>
             <groupId>com.sakuraio.nk</groupId>
+            <artifactId>nk-framework-auth-server</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.sakuraio.nk</groupId>-->
+<!--            <artifactId>nk-framework-auth-client</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.sakuraio.nk</groupId>
             <artifactId>nk-framework-auth-shiro</artifactId>
         </dependency>
         <dependency>

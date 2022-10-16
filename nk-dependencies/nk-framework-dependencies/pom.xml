@@ -20,6 +20,16 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-auth-client</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-auth-server</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-auth-shiro</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>

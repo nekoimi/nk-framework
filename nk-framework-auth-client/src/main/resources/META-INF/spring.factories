@@ -1,0 +1,3 @@
+# service
+com.sakuraio.nk.auth.api.service.AuthRemoteService=\
+  com.sakuraio.nk.auth.client.feign.AuthFeignClientService

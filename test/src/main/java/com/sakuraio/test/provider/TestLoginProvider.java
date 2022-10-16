@@ -1,8 +1,8 @@
 package com.sakuraio.test.provider;
 
 import cn.hutool.core.lang.Dict;
-import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
-import com.sakuraio.nk.auth.api.provider.AbstractLoginServiceProvider;
+import com.sakuraio.nk.auth.api.contract.JwtSubject;
+import com.sakuraio.nk.auth.server.provider.AbstractLoginServiceProvider;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,7 +11,9 @@ import org.springframework.stereotype.Component;
  * @author nekoimi 2022/10/14
  */
 @Component
-public class TestLoginProvider extends AbstractLoginServiceProvider {
+public class TestLoginProvider
+        extends AbstractLoginServiceProvider
+{
     @Override
     public String getAuthType() {
         return "test";

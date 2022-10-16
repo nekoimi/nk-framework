@@ -1,8 +1,11 @@
-package com.sakuraio.nk.auth.api.config.properties;
+package com.sakuraio.nk.auth.security.config.properties;
 
+import com.google.common.collect.Lists;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import java.util.List;
 
 /**
  * <p>AuthProperties</p>
@@ -25,27 +28,9 @@ public class AuthProperties {
     private String logoutPath = DEFAULT_LOGOUT_PATH;
 
     /**
-     * <p>jwt属性配置</p>
+     * <p>不需要校验token的url路径列表</p>
      */
-    private Jwt jwt = new Jwt();
-
-    @Data
-    public static class Jwt {
-        /**
-         * <p>加密秘钥</p>
-         */
-        private String secret = "123456";
-
-        /**
-         * <p>token有效期，单位秒</p>
-         */
-        private Integer ttl = 7200;
-
-        /**
-         * <p>token刷新有效期，单位秒</p>
-         */
-        private Integer refreshTtl = 604800;
-    }
+    private List<String> permitAll = Lists.newArrayList();
 
     public String getLoginPath() {
         return "/" + StringUtils.removeStart(loginPath, "/");

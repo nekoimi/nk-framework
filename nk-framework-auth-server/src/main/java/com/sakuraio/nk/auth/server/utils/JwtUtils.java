@@ -1,4 +1,4 @@
-package com.sakuraio.nk.auth.api.jwt;
+package com.sakuraio.nk.auth.server.utils;
 
 import cn.hutool.core.date.DateUtil;
 import com.auth0.jwt.JWT;
@@ -6,7 +6,7 @@ import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.sakuraio.nk.auth.api.contract.jwt.JwtSubject;
+import com.sakuraio.nk.auth.api.contract.JwtSubject;
 import com.sakuraio.nk.auth.api.exception.TokenCannotBeRefreshException;
 import org.apache.commons.collections4.MapUtils;
 
