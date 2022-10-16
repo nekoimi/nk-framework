@@ -64,7 +64,7 @@
         </dependency>
         <dependency>
             <groupId>com.sakuraio.nk</groupId>
-            <artifactId>nk-framework-json-jackson</artifactId>
+            <artifactId>nk-framework-json-fastjson</artifactId>
         </dependency>
         <dependency>
             <groupId>com.sakuraio.nk</groupId>

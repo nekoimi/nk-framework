@@ -35,11 +35,6 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-auth-spring-security</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-cache</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>

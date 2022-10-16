@@ -25,6 +25,7 @@ public final class UrlAllow {
         urlAllowList.add("/");
         urlAllowList.add("/favicon.ico");
         urlAllowList.add("/doc.html");
+        urlAllowList.add("/webjars/**");
         urlAllowList.add("/v2/api-docs");
         urlAllowList.add("/swagger-resources");
         urlAllowList.add("/swagger-resources/**");

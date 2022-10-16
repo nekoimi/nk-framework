@@ -13,7 +13,6 @@
         <module>nk-framework-auth-client</module>
         <module>nk-framework-auth-server</module>
         <module>nk-framework-auth-shiro</module>
-        <module>nk-framework-auth-spring-security</module>
         <module>nk-framework-cache</module>
         <module>nk-framework-captcha-api</module>
         <module>nk-framework-captcha</module>
