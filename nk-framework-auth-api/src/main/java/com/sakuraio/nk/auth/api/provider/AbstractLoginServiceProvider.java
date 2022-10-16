@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * <p>AbstractLoginServiceProvider</p>
  * <p>
- * 实现该登录认证方式的抽象类，以扩展登录认证方式
+ * 继承该抽象类，以扩展登录认证类型
  *
  * @author nekoimi 2022/10/14
  */
