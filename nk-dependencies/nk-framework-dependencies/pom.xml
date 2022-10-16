@@ -40,21 +40,6 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-captcha-api</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-captcha</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-captcha-geetest</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-constants</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
@@ -120,11 +105,6 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-jwt</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-ktorm</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
@@ -135,37 +115,7 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-pay-api</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-pay-ali</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-pay-union</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-pay-wechat</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-quartz</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-queue-api</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-queue-redis</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>
@@ -185,37 +135,12 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-user</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-util</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-web</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-websocket-api</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-websocket-servlet</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-websocket-socketio</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-websocket-netty</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
         </dependencies>

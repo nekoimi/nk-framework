@@ -14,9 +14,7 @@
         <module>nk-framework-auth-server</module>
         <module>nk-framework-auth-shiro</module>
         <module>nk-framework-cache</module>
-        <module>nk-framework-captcha-api</module>
-        <module>nk-framework-captcha</module>
-        <module>nk-framework-captcha-geetest</module>
+        <module>nk-framework-constants</module>
         <module>nk-framework-core</module>
         <module>nk-framework-devtool</module>
         <module>nk-framework-dictionary</module>
@@ -29,27 +27,14 @@
         <module>nk-framework-json-api</module>
         <module>nk-framework-json-fastjson</module>
         <module>nk-framework-json-jackson</module>
-        <module>nk-framework-jwt</module>
         <module>nk-framework-ktorm</module>
         <module>nk-framework-mybatis</module>
-        <module>nk-framework-pay-api</module>
-        <module>nk-framework-pay-ali</module>
-        <module>nk-framework-pay-union</module>
-        <module>nk-framework-pay-wechat</module>
         <module>nk-framework-quartz</module>
-        <module>nk-framework-queue-api</module>
-        <module>nk-framework-queue-redis</module>
         <module>nk-framework-redis</module>
         <module>nk-framework-sms</module>
         <module>nk-framework-swagger2</module>
-        <module>nk-framework-user</module>
         <module>nk-framework-util</module>
         <module>nk-framework-web</module>
-        <module>nk-framework-websocket-api</module>
-        <module>nk-framework-websocket-netty</module>
-        <module>nk-framework-websocket-socketio</module>
-        <module>nk-framework-websocket-servlet</module>
-        <module>nk-framework-constants</module>
         <module>test</module>
     </modules>
 
@@ -197,16 +182,6 @@
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
                 <artifactId>nk-framework-json-api</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-json-jackson</artifactId>
-                <version>${nk-framework-dependencies-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-json-fastjson</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
         </dependencies>

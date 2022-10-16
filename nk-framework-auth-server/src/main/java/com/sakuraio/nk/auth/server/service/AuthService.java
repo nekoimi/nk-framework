@@ -44,7 +44,7 @@ public class AuthService implements AuthRemoteService {
                 //       先到并发缓存(过期的token => 刷新后的token)里面查找对应的已经刷新好的token
                 String refreshedToken = cacheManager.getRefreshedToken(token);
                 if (StringUtils.isBlank(refreshedToken)) {
-                    // 没有找到并发缓存，检查改token是否被放到黑名单，放到黑名单的token不允许再次刷新
+                    // 没有找到并发缓存，检查token是否被放到黑名单，放到黑名单的token不允许再次刷新
                     if (cacheManager.blackHas(token)) {
                         throw new TokenExpireException();
                     }

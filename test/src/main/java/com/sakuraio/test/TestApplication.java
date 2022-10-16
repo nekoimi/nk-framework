@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
- * <p>FileApplication</p>
+ * <p>TestApplication</p>
  *
  * @author nekoimi 2022/10/04
  */
@@ -18,9 +18,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableDiscoveryClient
 @EnableSecurityAccess
 @SpringBootApplication
-public class FileApplication {
+public class TestApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(FileApplication.class).bannerMode(Banner.Mode.OFF).run(args);
+        new SpringApplicationBuilder(TestApplication.class).bannerMode(Banner.Mode.OFF).run(args);
     }
 }
