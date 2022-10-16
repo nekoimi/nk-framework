@@ -1,5 +1,7 @@
-package com.sakuraio.nk.json.api;
+package com.sakuraio.nk.json.jackson;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
 import com.sakuraio.nk.core.holder.SpringContextHolder;
 
 /**
@@ -24,7 +26,23 @@ public class JsonUtils {
         return SpringContextHolder.getBean(JsonOperations.class).readValue(json, resultType);
     }
 
+    public static  <T> T readValue(String json, TypeReference<T> resultType) {
+        return SpringContextHolder.getBean(JsonOperations.class).readValue(json, resultType);
+    }
+
+    public static  <T> T readValue(String json, JavaType resultType) {
+        return SpringContextHolder.getBean(JsonOperations.class).readValue(json, resultType);
+    }
+
     public static  <T> T readValue(byte[] json, Class<T> resultType) {
+        return SpringContextHolder.getBean(JsonOperations.class).readValue(json, resultType);
+    }
+
+    public static  <T> T readValue(byte[] json, TypeReference<T> resultType) {
+        return SpringContextHolder.getBean(JsonOperations.class).readValue(json, resultType);
+    }
+
+    public static  <T> T readValue(byte[] json, JavaType resultType) {
         return SpringContextHolder.getBean(JsonOperations.class).readValue(json, resultType);
     }
 }

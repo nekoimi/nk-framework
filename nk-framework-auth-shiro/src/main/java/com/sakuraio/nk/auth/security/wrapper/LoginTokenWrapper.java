@@ -2,7 +2,7 @@ package com.sakuraio.nk.auth.security.wrapper;
 
 import cn.hutool.core.lang.Dict;
 import com.sakuraio.nk.auth.api.contract.LoginToken;
-import com.sakuraio.nk.json.api.JsonUtils;
+import com.sakuraio.nk.json.jackson.JsonUtils;
 import com.sakuraio.nk.util.http.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

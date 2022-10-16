@@ -24,9 +24,8 @@
         <module>nk-framework-feign</module>
         <module>nk-framework-file-api</module>
         <module>nk-framework-file-client</module>
-        <module>nk-framework-json-api</module>
+        <module>nk-framework-json</module>
         <module>nk-framework-json-fastjson</module>
-        <module>nk-framework-json-jackson</module>
         <module>nk-framework-ktorm</module>
         <module>nk-framework-mybatis</module>
         <module>nk-framework-quartz</module>
@@ -181,7 +180,7 @@
             </dependency>
             <dependency>
                 <groupId>com.sakuraio.nk</groupId>
-                <artifactId>nk-framework-json-api</artifactId>
+                <artifactId>nk-framework-json</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
         </dependencies>

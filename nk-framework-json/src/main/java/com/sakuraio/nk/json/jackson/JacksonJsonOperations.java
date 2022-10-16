@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sakuraio.nk.core.holder.SpringContextHolder;
-import com.sakuraio.nk.json.api.JsonOperations;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -62,6 +60,26 @@ public class JacksonJsonOperations implements JsonOperations {
     }
 
     @Override
+    public <T> T readValue(String json, TypeReference<T> resultType) {
+        try {
+            return objectMapper.readValue(json, resultType);
+        } catch (JsonProcessingException e) {
+            log.error(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public <T> T readValue(String json, JavaType resultType) {
+        try {
+            return objectMapper.readValue(json, resultType);
+        } catch (JsonProcessingException e) {
+            log.error(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
     public <T> T readValue(byte[] json, Class<T> resultType) {
         try {
             return objectMapper.readValue(json, resultType);
@@ -71,19 +89,21 @@ public class JacksonJsonOperations implements JsonOperations {
         }
     }
 
-    public static <T> T read(String json, TypeReference<T> resultType) {
+    @Override
+    public <T> T readValue(byte[] json, TypeReference<T> resultType) {
         try {
-            return SpringContextHolder.getBean(ObjectMapper.class).readValue(json, resultType);
-        } catch (JsonProcessingException e) {
+            return objectMapper.readValue(json, resultType);
+        } catch (IOException e) {
             log.error(e.getMessage());
             return null;
         }
     }
 
-    public static <T> T read(String json, JavaType javaType) {
+    @Override
+    public <T> T readValue(byte[] json, JavaType resultType) {
         try {
-            return SpringContextHolder.getBean(ObjectMapper.class).readValue(json, javaType);
-        } catch (JsonProcessingException e) {
+            return objectMapper.readValue(json, resultType);
+        } catch (IOException e) {
             log.error(e.getMessage());
             return null;
         }

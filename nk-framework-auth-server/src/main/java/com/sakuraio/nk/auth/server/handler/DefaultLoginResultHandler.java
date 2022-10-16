@@ -8,7 +8,7 @@ import com.sakuraio.nk.auth.server.vo.LoginResponseVO;
 import com.sakuraio.nk.constants.RequestConstants;
 import com.sakuraio.nk.core.error.vo.ErrorDetailsVO;
 import com.sakuraio.nk.core.protocol.BaseResponse;
-import com.sakuraio.nk.json.api.JsonUtils;
+import com.sakuraio.nk.json.jackson.JsonUtils;
 import com.sakuraio.nk.util.http.ResponseUtils;
 
 import javax.servlet.http.HttpServletRequest;

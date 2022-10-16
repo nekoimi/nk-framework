@@ -18,7 +18,7 @@
         </dependency>
         <dependency>
             <groupId>com.sakuraio.nk</groupId>
-            <artifactId>nk-framework-json-api</artifactId>
+            <artifactId>nk-framework-json</artifactId>
         </dependency>
         <dependency>
             <groupId>com.sakuraio.nk</groupId>

@@ -4,8 +4,6 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.sakuraio.nk.constants.TimeConstants;
-import com.sakuraio.nk.json.api.JsonOperations;
-import com.sakuraio.nk.json.fastjson.FastjsonJsonOperations;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 
@@ -17,11 +15,6 @@ import java.nio.charset.StandardCharsets;
  * @author nekoimi 2022/10/07
  */
 public class FastjsonConfiguration {
-
-    @Bean
-    public JsonOperations jsonOperations() {
-        return new FastjsonJsonOperations();
-    }
 
     @Bean
     public FastJsonConfig fastJsonConfig() {

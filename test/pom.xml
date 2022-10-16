@@ -60,14 +60,6 @@
         </dependency>
         <dependency>
             <groupId>com.sakuraio.nk</groupId>
-            <artifactId>nk-framework-json-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.sakuraio.nk</groupId>
-            <artifactId>nk-framework-json-fastjson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.sakuraio.nk</groupId>
             <artifactId>nk-framework-file-api</artifactId>
         </dependency>
         <dependency>
