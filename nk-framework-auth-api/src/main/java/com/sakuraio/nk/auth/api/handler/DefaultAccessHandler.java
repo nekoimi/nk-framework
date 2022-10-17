@@ -35,7 +35,7 @@ public class DefaultAccessHandler implements AccessHandler {
     public synchronized void handleAccess(HttpServletRequest request, HttpServletResponse response) {
         String token = RequestUtils.getToken(request);
         if (StringUtils.isBlank(token)) {
-            throw new RequestValidationException("缺少token值");
+            throw new RequestValidationException("缺少认证Token");
         }
         BaseResponse<AccessResponseVO> baseResponse = authService.authorization(token);
         AccessResponseVO accessResponseVO = BaseResponseUtils.resolveResponseNonNull(baseResponse);

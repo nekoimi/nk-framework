@@ -1,5 +1,6 @@
 package com.sakuraio.nk.auth.api.contract;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Maps;
 
 import java.io.Serializable;
@@ -19,6 +20,7 @@ public interface JwtSubject extends Serializable {
      *
      * @return
      */
+    @JsonIgnore
     String getIdentifier();
 
     /**
@@ -28,14 +30,17 @@ public interface JwtSubject extends Serializable {
      */
     String getUsername();
 
+    @JsonIgnore
     default boolean isAccountNonExpired() {
         return true;
     }
 
+    @JsonIgnore
     default boolean isAccountNonLocked() {
         return true;
     }
 
+    @JsonIgnore
     default Map<String, String> getJwtCustomClaims() {
         return Maps.newHashMap();
     }

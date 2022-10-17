@@ -15,7 +15,6 @@ import com.sakuraio.nk.json.jackson.JacksonJsonOperations;
 import com.sakuraio.nk.json.jackson.JsonOperations;
 import com.sakuraio.nk.json.jackson.customizer.CustomJackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.autoconfigure.jackson.JacksonProperties;
 import org.springframework.context.annotation.Bean;
@@ -36,15 +35,6 @@ public class JacksonConfiguration {
     @Bean
     public JsonOperations jsonOperations(ObjectMapper objectMapper) {
         return new JacksonJsonOperations(objectMapper);
-    }
-
-    @Bean
-    public HttpMessageConverters httpMessageConverters(ObjectMapper objectMapper) {
-        MappingJackson2HttpMessageConverter httpMessageConverter = new MappingJackson2HttpMessageConverter();
-        httpMessageConverter.setDefaultCharset(StandardCharsets.UTF_8);
-        httpMessageConverter.setPrettyPrint(true);
-        httpMessageConverter.setObjectMapper(objectMapper);
-        return new HttpMessageConverters(httpMessageConverter);
     }
 
     @Bean
@@ -84,6 +74,15 @@ public class JacksonConfiguration {
     @ConditionalOnMissingBean(value = JavaTimeModule.class)
     public JavaTimeModule javaTimeModule() {
         return new JavaTimeModule();
+    }
+
+    @Bean
+    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter(ObjectMapper objectMapper) {
+        MappingJackson2HttpMessageConverter httpMessageConverter = new MappingJackson2HttpMessageConverter();
+        httpMessageConverter.setDefaultCharset(StandardCharsets.UTF_8);
+        httpMessageConverter.setPrettyPrint(true);
+        httpMessageConverter.setObjectMapper(objectMapper);
+        return httpMessageConverter;
     }
 
     @Bean

@@ -1,64 +1,55 @@
-package com.sakuraio.nk.core.error.handler;
+package com.sakuraio.nk.web.error;
 
+import com.sakuraio.nk.core.contract.ErrorDetails;
 import com.sakuraio.nk.core.error.Errors;
 import com.sakuraio.nk.core.error.exception.BaseRuntimeException;
-import com.sakuraio.nk.core.error.utils.ErrorUtils;
 import com.sakuraio.nk.core.error.vo.ErrorDetailsVO;
 import com.sakuraio.nk.core.protocol.BaseResponse;
+import com.sakuraio.nk.core.utils.ErrorUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 /**
- * <p>GlobalExceptionHandler</p>
+ * <p>DefaultExceptionHandler</p>
  *
  * @author nekoimi 2022/10/04
  */
 @Slf4j
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class DefaultExceptionHandler {
 
     @ExceptionHandler(value = BaseRuntimeException.class)
-    public BaseResponse<ErrorDetailsVO> bizExceptionHandler(BaseRuntimeException e) {
+    public BaseResponse<ErrorDetails> bizExceptionHandler(BaseRuntimeException e) {
         log.error("业务异常: {}", e.getMessage());
-        e.printStackTrace();
         return BaseResponse.error(ErrorDetailsVO.of(
-                e.getCode(),
-                e.getMessage(),
-                e.getTrace()
+                e.getCode(), e.getMessage(), e.getTrace()
         ));
     }
 
     @ExceptionHandler(value = NullPointerException.class)
-    public BaseResponse<ErrorDetailsVO> nullPointExceptionHandler(NullPointerException e) {
+    public BaseResponse<ErrorDetails> nullPointExceptionHandler(NullPointerException e) {
         log.error("空指针异常: {}", e.getMessage());
-        e.printStackTrace();
         return BaseResponse.error(ErrorDetailsVO.of(
-                Errors.SERVER_ERROR.code(),
-                e.getMessage(),
-                ErrorUtils.getTraceString(e)
+                Errors.SERVER_ERROR.code(), e.getMessage(), ErrorUtils.getTraceString(e)
         ));
     }
 
     @ExceptionHandler(value = NoHandlerFoundException.class)
-    public BaseResponse<ErrorDetailsVO> handlerNotFoundExceptionHandler(NoHandlerFoundException e) {
-        String errorMessage = "路由不存在! method: " + e.getHttpMethod() + ", url: " + e.getRequestURL();
+    public BaseResponse<ErrorDetails> handlerNotFoundExceptionHandler(NoHandlerFoundException e) {
+        String errorMessage = "路由不存在: " + e.getHttpMethod() + ": " + e.getRequestURL();
         return BaseResponse.error(ErrorDetailsVO.of(
-                Errors.CLIENT_ERROR.code(),
-                errorMessage,
-                ErrorUtils.getTraceString(e)
+                Errors.CLIENT_ERROR.code(), errorMessage, ErrorUtils.getTraceString(e)
         ));
     }
 
     @ExceptionHandler(value = Exception.class)
-    public BaseResponse<ErrorDetailsVO> defaultExceptionHandler(Exception e) {
+    public BaseResponse<ErrorDetails> defaultExceptionHandler(Exception e) {
         log.error("异常: {}, {}", e.getClass(), e.getMessage());
         e.printStackTrace();
         return BaseResponse.error(ErrorDetailsVO.of(
-                Errors.SERVER_ERROR.code(),
-                e.getMessage(),
-                ErrorUtils.getTraceString(e)
+                Errors.SERVER_ERROR.code(), e.getMessage(), ErrorUtils.getTraceString(e)
         ));
     }
 }

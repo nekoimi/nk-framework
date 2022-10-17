@@ -1,7 +1,10 @@
 package com.sakuraio.nk.core.error.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sakuraio.nk.core.contract.ErrorDetails;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * <p>ErrorDetailsVO</p>
@@ -11,13 +14,21 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor(staticName = "of")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ErrorDetailsVO implements ErrorDetails {
-    private Integer code;
-    private String message;
-    private String trace;
+    private final Integer code;
+    private final String message;
+    private final String trace;
+
+    public ErrorDetailsVO(Integer code, String message, String trace) {
+        this.code = code;
+        this.message = message;
+        this.trace = trace;
+    }
+
+    public static ErrorDetailsVO of(Integer code, String message, String trace) {
+        return new ErrorDetailsVO(code, message, trace);
+    }
 
     @Override
     public Integer code() {

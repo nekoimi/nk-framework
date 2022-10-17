@@ -1,4 +1,6 @@
-package com.sakuraio.nk.core.error.utils;
+package com.sakuraio.nk.core.utils;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -20,6 +22,9 @@ public class ErrorUtils {
      * @return
      */
     public static String getTraceString(Throwable throwable) {
+        if (throwable == null) {
+            return StringUtils.EMPTY;
+        }
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter, true);
         throwable.printStackTrace(printWriter);

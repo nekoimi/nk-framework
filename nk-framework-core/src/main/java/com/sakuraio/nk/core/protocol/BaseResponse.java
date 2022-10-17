@@ -1,5 +1,6 @@
 package com.sakuraio.nk.core.protocol;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sakuraio.nk.core.contract.ErrorDetails;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,6 +24,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseResponse<T extends Serializable> implements Serializable {
     public static final Integer OK_CODE = 0;
     public static final String OK_MESSAGE = "OK";
@@ -89,6 +91,23 @@ public class BaseResponse<T extends Serializable> implements Serializable {
                 .code(errorDetails.code())
                 .message(errorDetails.message())
                 .trace(errorDetails.trace())
+                .build();
+    }
+
+    /**
+     * <p>返回错误</p>
+     *
+     * @param code
+     * @param message
+     * @param trace
+     * @param <T>
+     * @return
+     */
+    public static <T extends Serializable> BaseResponse<T> error(Integer code, String message, String trace) {
+        return BaseResponse.<T>builder()
+                .code(code)
+                .message(message)
+                .trace(trace)
                 .build();
     }
 }

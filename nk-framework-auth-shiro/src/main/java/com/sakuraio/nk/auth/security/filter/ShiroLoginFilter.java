@@ -1,5 +1,6 @@
 package com.sakuraio.nk.auth.security.filter;
 
+import com.google.common.collect.Lists;
 import com.sakuraio.nk.auth.api.contract.JwtSubject;
 import com.sakuraio.nk.auth.api.contract.LoginResultHandler;
 import com.sakuraio.nk.auth.api.contract.LoginToken;
@@ -11,6 +12,8 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.server.MethodNotAllowedException;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -45,9 +48,13 @@ public class ShiroLoginFilter extends AuthenticatingFilter {
     }
 
     @Override
-    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+    protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse response) throws Exception {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        if (!HttpMethod.POST.matches(request.getMethod())) {
+            throw new MethodNotAllowedException(request.getMethod(), Lists.newArrayList(HttpMethod.POST));
+        }
         log.debug("onAccessDenied: 执行登录");
-        executeLogin(request, response);
+        executeLogin(servletRequest, response);
         return false;
     }
 

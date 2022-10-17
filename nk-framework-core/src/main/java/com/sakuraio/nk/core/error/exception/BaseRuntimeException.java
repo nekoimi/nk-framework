@@ -5,6 +5,8 @@ import com.sakuraio.nk.core.error.Errors;
 
 /**
  * <p>BaseRuntimeException</p>
+ * <p>
+ * 全局自定义异常基础异常，自定义的异常都需要继承自该类
  *
  * @author nekoimi 2022/10/14
  */
