@@ -16,6 +16,7 @@
         <module>nk-framework-cache</module>
         <module>nk-framework-constants</module>
         <module>nk-framework-core</module>
+        <module>nk-framework-desensitize</module>
         <module>nk-framework-devtool</module>
         <module>nk-framework-dictionary</module>
         <module>nk-framework-elasticsearch</module>
