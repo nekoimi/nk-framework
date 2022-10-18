@@ -21,7 +21,7 @@ import java.util.Map;
 public class JwtUtils {
     private static final String REFRESH_KEY = "rat";
     // jwt签发者
-    private static final String ISSUER = "com.sakuraio.nk.auth.api.jwt";
+    private static final String ISSUER = "com.sakuraio.nk.auth.server";
     // jwt加密算法
     private static Algorithm algorithm;
     // token有效期

@@ -24,8 +24,8 @@ public class DefaultLoginResultHandler implements LoginResultHandler {
     @Override
     public void handleLoginFailure(HttpServletRequest request, HttpServletResponse response, LoginFailedException e) {
         ResponseUtils.sendJson(response, JsonUtils.writeValueAsString(
-                BaseResponse.error(ErrorDetailsVO.of(e.getCode(), e.getMessage(), e.getTrace())
-        )));
+                ErrorDetailsVO.of(e.getCode(), request.getMethod(), request.getRequestURI(), e.getMessage(), e.getTrace())
+        ));
     }
 
     @Override

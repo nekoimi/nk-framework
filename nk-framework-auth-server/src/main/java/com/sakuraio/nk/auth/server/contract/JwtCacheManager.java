@@ -30,7 +30,7 @@ public interface JwtCacheManager {
      *
      * @param token
      */
-    void blackAdd(String token);
+    void addBlack(String token);
 
     /**
      * <p>token是否被拉黑</p>
@@ -38,5 +38,5 @@ public interface JwtCacheManager {
      * @param token
      * @return
      */
-    boolean blackHas(String token);
+    Boolean isBlack(String token);
 }

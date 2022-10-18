@@ -21,6 +21,10 @@
             <artifactId>nk-framework-json</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.sakuraio.nk</groupId>
+            <artifactId>nk-framework-redis</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
         </dependency>

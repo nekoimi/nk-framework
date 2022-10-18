@@ -184,6 +184,11 @@
                 <artifactId>nk-framework-json</artifactId>
                 <version>${nk-framework-dependencies-version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.sakuraio.nk</groupId>
+                <artifactId>nk-framework-redis</artifactId>
+                <version>${nk-framework-dependencies-version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

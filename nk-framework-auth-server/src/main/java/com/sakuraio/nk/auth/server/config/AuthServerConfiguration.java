@@ -10,6 +10,7 @@ import com.sakuraio.nk.auth.server.service.AuthService;
 import com.sakuraio.nk.auth.server.service.JwtSubjectService;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.core.RedisTemplate;
 
 /**
  * <p>AuthServerConfiguration</p>
@@ -27,8 +28,8 @@ public class AuthServerConfiguration {
     }
 
     @Bean
-    public JwtCacheManager jwtCacheManager() {
-        return new RedisJwtCacheManager();
+    public JwtCacheManager jwtCacheManager(RedisTemplate<String, Object> redisTemplate) {
+        return new RedisJwtCacheManager(redisTemplate);
     }
 
     @Bean

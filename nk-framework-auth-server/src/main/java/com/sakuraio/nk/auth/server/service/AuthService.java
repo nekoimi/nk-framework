@@ -45,7 +45,7 @@ public class AuthService implements AuthRemoteService {
                 String refreshedToken = cacheManager.getRefreshedToken(token);
                 if (StringUtils.isBlank(refreshedToken)) {
                     // 没有找到并发缓存，检查token是否被放到黑名单，放到黑名单的token不允许再次刷新
-                    if (cacheManager.blackHas(token)) {
+                    if (Boolean.TRUE.equals(cacheManager.isBlack(token))) {
                         throw new TokenExpireException();
                     }
                     // 过期的token没有被刷新过，检查是否可以刷新
@@ -80,7 +80,7 @@ public class AuthService implements AuthRemoteService {
         if (needRefreshToken) {
             finalToken = JwtUtils.encode(subject);
             // 将过期的token放置到黑名单
-            cacheManager.blackAdd(token);
+            cacheManager.addBlack(token);
             // 添加刷新置换并发缓存
             cacheManager.setRefresh(token, finalToken);
         }

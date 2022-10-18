@@ -20,6 +20,14 @@ public interface ErrorDetails extends Serializable {
 
     String message();
 
+    default String method() {
+        return StringUtils.EMPTY;
+    }
+
+    default String path() {
+        return StringUtils.EMPTY;
+    }
+
     default String trace() {
         return StringUtils.EMPTY;
     }

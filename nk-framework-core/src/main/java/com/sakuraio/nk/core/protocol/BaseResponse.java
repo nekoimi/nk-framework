@@ -93,21 +93,4 @@ public class BaseResponse<T extends Serializable> implements Serializable {
                 .trace(errorDetails.trace())
                 .build();
     }
-
-    /**
-     * <p>返回错误</p>
-     *
-     * @param code
-     * @param message
-     * @param trace
-     * @param <T>
-     * @return
-     */
-    public static <T extends Serializable> BaseResponse<T> error(Integer code, String message, String trace) {
-        return BaseResponse.<T>builder()
-                .code(code)
-                .message(message)
-                .trace(trace)
-                .build();
-    }
 }

@@ -20,6 +20,9 @@ import java.net.UnknownHostException;
 
 /**
  * nekoimi  2021/7/20 下午2:23
+ *
+ * <p>http请求使用流读取数据，读取一次之后就不能重复读取了，这里实现自定义的wrapper，包装 {@link HttpServletRequest HttpServletRequest} 对象，
+ * 缓存请求体到本地，供后续重复读取</p>
  */
 @Slf4j
 public class HttpRequestWrapper extends HttpServletRequestWrapper {
@@ -56,7 +59,7 @@ public class HttpRequestWrapper extends HttpServletRequestWrapper {
 
             @Override
             public void setReadListener(ReadListener readListener) {
-                // TODO document why this method is empty
+                // ignore
             }
 
             @Override
@@ -104,7 +107,7 @@ public class HttpRequestWrapper extends HttpServletRequestWrapper {
         return ipAddress;
     }
 
-    public Dict queryAsDict() {
+    public Dict getQueryDict() {
         return RequestUtils.getQueryDict(this.getQueryString());
     }
 
