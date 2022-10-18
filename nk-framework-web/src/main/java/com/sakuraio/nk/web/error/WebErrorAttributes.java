@@ -14,6 +14,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -80,6 +81,10 @@ public class WebErrorAttributes implements ErrorAttributes, HandlerExceptionReso
                     }
                     errorAttributes.put(ErrorDetails.PROP_MESSAGE, errorBuilder.toString());
                 }
+            } else if (error instanceof NoHandlerFoundException) {
+                NoHandlerFoundException routeNotFoundError = (NoHandlerFoundException) error;
+                String errorMessage = "路由不存在: " + routeNotFoundError.getHttpMethod() + ": " + routeNotFoundError.getRequestURL();
+                errorAttributes.put(ErrorDetails.PROP_MESSAGE, errorMessage);
             } else {
                 if (StringUtils.hasLength(error.getMessage())) {
                     errorAttributes.put(ErrorDetails.PROP_MESSAGE, error.getMessage());

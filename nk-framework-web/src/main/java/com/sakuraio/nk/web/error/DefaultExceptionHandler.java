@@ -7,7 +7,6 @@ import com.sakuraio.nk.core.utils.ErrorUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -47,19 +46,6 @@ public class DefaultExceptionHandler {
     @ExceptionHandler(value = NullPointerException.class)
     public ErrorDetailsVO nullPointExceptionHandler(NullPointerException e) {
         log.error("空指针异常: {}", e.getMessage());
-        return wrapperErrorDetails(Errors.SERVER_ERROR.code(), e.getMessage(), ErrorUtils.getTraceString(e));
-    }
-
-    @ExceptionHandler(value = NoHandlerFoundException.class)
-    public ErrorDetailsVO handlerNotFoundExceptionHandler(NoHandlerFoundException e) {
-        String errorMessage = "路由不存在: " + e.getHttpMethod() + ": " + e.getRequestURL();
-        return wrapperErrorDetails(Errors.CLIENT_ERROR.code(), errorMessage, ErrorUtils.getTraceString(e));
-    }
-
-    @ExceptionHandler(value = Exception.class)
-    public ErrorDetailsVO defaultExceptionHandler(Exception e) {
-        log.error("异常: {}, {}", e.getClass(), e.getMessage());
-        e.printStackTrace();
         return wrapperErrorDetails(Errors.SERVER_ERROR.code(), e.getMessage(), ErrorUtils.getTraceString(e));
     }
 }
